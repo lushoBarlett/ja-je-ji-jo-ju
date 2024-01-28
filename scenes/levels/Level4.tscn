@@ -3333,7 +3333,14 @@ metadata/_edit_lock_ = true
 
 [node name="Carlitox" parent="." node_paths=PackedStringArray("DRUMS", "CHORDS", "MELO1", "MELO2") instance=ExtResource("5_qgpu5")]
 unique_name_in_owner = true
+<<<<<<< Updated upstream
 position = Vector2(963, 292)
+=======
+position = Vector2(958, 479)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 DRUMS = NodePath("../DRUMS")
 CHORDS = NodePath("../CHORDS")
 MELO1 = NodePath("../MELO1")
