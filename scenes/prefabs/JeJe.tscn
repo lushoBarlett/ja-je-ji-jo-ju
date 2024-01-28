@@ -1,0 +1,229 @@
+[gd_scene load_steps=11 format=3 uid="uid://ic58vevujqd"]
+
+[ext_resource type="Script" path="res://scripts/objects/jeje.gd" id="1_47lj2"]
+[ext_resource type="Texture2D" uid="uid://crxr6c7b03tkv" path="res://assets/jeje-michi-tanque.png" id="2_762jk"]
+[ext_resource type="Texture2D" uid="uid://r8ft1dl2bn21" path="res://assets/jeje-michi-brazo-izq.png" id="3_phu5r"]
+[ext_resource type="Texture2D" uid="uid://bhwihdbcox8nt" path="res://assets/jeje-michi-brazo-der.png" id="4_2qta4"]
+[ext_resource type="Texture2D" uid="uid://b36pugkxdbnvn" path="res://assets/jeje-michi-RELOCO.png" id="5_6dfu2"]
+[ext_resource type="Texture2D" uid="uid://cru5tgpq27tow" path="res://assets/jeje-michi-normal.png" id="6_roilo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_udy8v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6dfu2")
+}],
+"loop": true,
+"name": &"crazy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_roilo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_d37kr"]
+resource_name = "crazy"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"crazy"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tanque:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(70, -11), Vector2(70, -8), Vector2(70, -11)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BrazoIzq:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-77, -50), Vector2(-77, -47), Vector2(-77, -50)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BrazoDer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(93, -45), Vector2(93, -43), Vector2(93, -45)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.99), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u5ufk"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tanque:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(70, -11), Vector2(70, -8), Vector2(70, -11)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BrazoIzq:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-77, -50), Vector2(-77, -47), Vector2(-77, -50)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BrazoDer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(93, -45), Vector2(93, -43), Vector2(93, -45)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.99), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s84x3"]
+_data = {
+"crazy": SubResource("Animation_d37kr"),
+"idle": SubResource("Animation_u5ufk")
+}
+
+[node name="JeJe" type="Node2D"]
+script = ExtResource("1_47lj2")
+SPEED = 1.0
+FORCE = 500.0
+
+[node name="Tanque" type="Sprite2D" parent="."]
+position = Vector2(70, -11)
+texture = ExtResource("2_762jk")
+
+[node name="BrazoIzq" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-77, -50)
+texture = ExtResource("3_phu5r")
+offset = Vector2(-35, 40)
+
+[node name="Boca" type="Marker2D" parent="BrazoIzq"]
+position = Vector2(-94, 86)
+
+[node name="BrazoDer" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(93, -45)
+texture = ExtResource("4_2qta4")
+offset = Vector2(40, 40)
+
+[node name="Boca" type="Marker2D" parent="BrazoDer"]
+position = Vector2(97, 86)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_udy8v")
+animation = &"crazy"
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+process_callback = 0
+wait_time = 5.0
+
+[node name="Caminata" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_s84x3")
+}
+
+[connection signal="timeout" from="Timer" to="." method="disparar"]

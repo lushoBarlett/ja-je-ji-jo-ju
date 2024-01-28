@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8vwvfsppcmni"]
+
+[ext_resource type="Texture2D" uid="uid://cpxpmdlyuctka" path="res://assets/fueguito.png" id="1_rhlei"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjllp"]
+atlas = ExtResource("1_rhlei")
+region = Rect2(0, 17, 120, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjra6"]
+atlas = ExtResource("1_rhlei")
+region = Rect2(120, 17, 120, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjsr4"]
+atlas = ExtResource("1_rhlei")
+region = Rect2(240, 17, 120, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j08cf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjllp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjra6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjsr4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q77jn"]
+radius = 34.0
+
+[sub_resource type="Animation" id="Animation_72bcn"]
+resource_name = "fire"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5mhjo"]
+_data = {
+"fire": SubResource("Animation_72bcn")
+}
+
+[node name="Fuego" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j08cf")
+frame_progress = 0.662556
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 21)
+shape = SubResource("CircleShape2D_q77jn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5mhjo")
+}
