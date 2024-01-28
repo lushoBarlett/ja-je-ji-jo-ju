@@ -67,7 +67,7 @@ func conectar_progreso():
 @export var NIVEL = 1
 
 func _ready():
-	cargar_nivel()
+	cargar_titulo()
 
 func mori(rata):
 	# we assume there are two rats only
@@ -84,13 +84,19 @@ func perdi():
 	get_tree().paused = true
 	Nivel.add_child(GameOver)
 
+func cargar_titulo():
+	var Title = preload("res://scenes/ui/Title.tscn").instantiate()
+	Title.find_child("Comenzar").pressed.connect(cargar_nivel)
+	Nivel = Node2D.new()
+	add_child(Nivel) # hack
+	Nivel.add_child(Title)
+
 func cargar_nivel():
 	spawns = []; gases = []; ratas = []
 	
 	if Nivel:
 		remove_child(Nivel)
 	
-	print("res://scenes/levels/Level" + str(NIVEL) + ".tscn")
 	Nivel = load("res://scenes/levels/Level" + str(NIVEL) + ".tscn").instantiate()
 	add_child(Nivel)
 	get_tree().paused = false
