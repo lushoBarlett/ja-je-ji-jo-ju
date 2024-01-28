@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnam188cfqgn5"]
+
+[ext_resource type="Script" path="res://scenes/prefabs/carlitox.gd" id="1_ol4nw"]
+[ext_resource type="Texture2D" uid="uid://buiphch21602o" path="res://assets/jojo - carlitox PATAS.png" id="2_hekae"]
+[ext_resource type="Texture2D" uid="uid://dke1ll48043xc" path="res://assets/jojo - carlitox - torso.png" id="3_i6hg3"]
+
+[sub_resource type="Animation" id="Animation_t78wp"]
+resource_name = "mover_las_patas"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("patas:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [6.28319, 3.14159, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l5n5r"]
+_data = {
+"mover_las_patas": SubResource("Animation_t78wp")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ypvi6"]
+radius = 55.0
+height = 256.0
+
+[node name="Carlitox" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 0
+gravity_scale = 0.0
+max_contacts_reported = 20
+contact_monitor = true
+script = ExtResource("1_ol4nw")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 5.0
+autostart = true
+
+[node name="Boca" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -92)
+
+[node name="patas" type="Sprite2D" parent="."]
+position = Vector2(-0.499997, -3.75)
+rotation = 6.28319
+scale = Vector2(0.788793, 0.720884)
+texture = ExtResource("2_hekae")
+offset = Vector2(0, 55)
+
+[node name="cuerpo" type="Sprite2D" parent="."]
+position = Vector2(-3.5, -74.75)
+scale = Vector2(0.788793, 0.720884)
+texture = ExtResource("3_i6hg3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l5n5r")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -33)
+shape = SubResource("CapsuleShape2D_ypvi6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="acelerar"]
