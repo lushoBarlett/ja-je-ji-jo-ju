@@ -3339,9 +3339,6 @@ collision_layer = 2
 collision_mask = 2
 player = 2
 
-[node name="Lup1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_hkmx6")
-
 [node name="Lup2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_d67dn")
 autoplay = true
