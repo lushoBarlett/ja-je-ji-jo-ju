@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=3 uid="uid://bb6yo8t8l7f1q"]
+
+[ext_resource type="Script" path="res://scripts/objects/juju.gd" id="1_fl0bk"]
+[ext_resource type="Texture2D" uid="uid://cvfvqcuuxu2ew" path="res://assets/juju -mirtha normal.png" id="2_v54nc"]
+[ext_resource type="Texture2D" uid="uid://cm84pibyj14op" path="res://assets/juju -mirtha ojitos celestes.png" id="3_sgyhs"]
+
+[sub_resource type="Animation" id="Animation_i2hrt"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mirta:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0174533, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mirta:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(3, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mirta:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Diamantes:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bxul8"]
+resource_name = "eyes"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mirta:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Diamantes:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hr6gl"]
+_data = {
+"eyes": SubResource("Animation_bxul8"),
+"idle": SubResource("Animation_i2hrt")
+}
+
+[node name="JuJu" type="Node2D"]
+script = ExtResource("1_fl0bk")
+
+[node name="Mirta" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0.688854, 0)
+skew = 0.00400759
+texture = ExtResource("2_v54nc")
+
+[node name="Diamantes" type="Sprite2D" parent="."]
+texture = ExtResource("3_sgyhs")
+
+[node name="OjoIzq" type="Marker2D" parent="Diamantes"]
+position = Vector2(17, -130)
+
+[node name="OjoDer" type="Marker2D" parent="Diamantes"]
+position = Vector2(-12, -131)
+
+[node name="Disparar" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Animacion" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hr6gl")
+}
+
+[connection signal="timeout" from="Disparar" to="." method="disparar"]

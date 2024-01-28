@@ -4,11 +4,10 @@ var GameFunction = "Enemy"
 
 var apuntar: Vector2
 
-const EXPLOSIVENESS = 3
+const EXPLOSIVENESS = 2.5
 
 func _ready():
-	$AnimationPlayer.play("jagrandote")
-	$sfx.play()
+	$AnimationPlayer.play("get_rotated")
 
 func _process(delta):
 	apuntar *= 1 + (EXPLOSIVENESS - 1) * delta

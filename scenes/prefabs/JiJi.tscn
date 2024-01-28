@@ -174,13 +174,13 @@ script = ExtResource("1_rg37m")
 texture = ExtResource("2_exmx0")
 
 [node name="BrazoComprimido" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(61, -75)
 rotation = 0.349066
 texture = ExtResource("3_pkw00")
 offset = Vector2(-27.82, 47.38)
 
 [node name="BrazoExtendido" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(54, -69)
 rotation = 0.349066
 texture = ExtResource("4_qd6vt")
