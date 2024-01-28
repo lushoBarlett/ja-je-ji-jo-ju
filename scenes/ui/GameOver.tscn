@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbn36b7wsc2th"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_13y1s"]
+font_size = 100
+font_color = Color(0.768627, 0.211765, 0.12549, 0.858824)
+
+[node name="GameOver" type="Control"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1934.0
+offset_bottom = 1084.0
+color = Color(0.6, 0.6, 0.6, 0.713726)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 363.0
+offset_right = 1579.0
+offset_bottom = 667.0
+text = "\"El mundo rie sin fin\"
+Final Excesivamente Feliz"
+label_settings = SubResource("LabelSettings_13y1s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Reintentar" type="Button" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = 706.0
+offset_top = 697.0
+offset_right = 1206.0
+offset_bottom = 853.0
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Volver Atras"

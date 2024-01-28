@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj1ncbvj7e77r"]
+
+[ext_resource type="Script" path="res://scripts/control/progreso.gd" id="1_075t5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0i50h"]
+bg_color = Color(0.689306, 0.478903, 0.938408, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7xc7l"]
+bg_color = Color(0.384906, 0.683577, 0.370447, 1)
+
+[node name="Progreso" type="Node2D"]
+script = ExtResource("1_075t5")
+VELOCIDAD = 4
+
+[node name="Barra" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+z_index = 2
+offset_left = 557.0
+offset_top = 66.0
+offset_right = 1381.0
+offset_bottom = 112.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0i50h")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7xc7l")
+value = 50.0
+rounded = true
+show_percentage = false

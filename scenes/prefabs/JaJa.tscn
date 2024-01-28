@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://bctk13xfvdj0u"]
+
+[ext_resource type="Script" path="res://scripts/objects/jaja.gd" id="1_wdls6"]
+[ext_resource type="Texture2D" uid="uid://dw7txs05sttqn" path="res://assets/jaja-payaso.png" id="2_y4fg8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co7i3"]
+atlas = ExtResource("2_y4fg8")
+region = Rect2(0, 0, 325, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyjjc"]
+atlas = ExtResource("2_y4fg8")
+region = Rect2(345, 0, 325, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jso13"]
+atlas = ExtResource("2_y4fg8")
+region = Rect2(690, 0, 325, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgcni"]
+atlas = ExtResource("2_y4fg8")
+region = Rect2(1035, 0, 325, 390)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vdc62"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co7i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyjjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jso13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgcni")
+}],
+"loop": true,
+"name": &"move",
+"speed": 10.0
+}]
+
+[node name="JaJa" type="Node2D"]
+script = ExtResource("1_wdls6")
+SPEED = 0.2
+FORCE = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 3.0
+autostart = true
+
+[node name="Boca" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -92)
+
+[node name="Caminata" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -40)
+sprite_frames = SubResource("SpriteFrames_vdc62")
+animation = &"move"
+frame_progress = 0.690773
+
+[connection signal="timeout" from="Timer" to="." method="disparar"]

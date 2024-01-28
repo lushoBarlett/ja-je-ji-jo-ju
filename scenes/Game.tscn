@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c74recco261rv"]
+
+[ext_resource type="Script" path="res://scripts/control/manager.gd" id="1_s6c7w"]
+
+[node name="Game" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_s6c7w")
+NIVEL = 2

@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgxp506qteavq"]
+
+[ext_resource type="Script" path="res://scripts/objects/rata.gd" id="1_65w7b"]
+[ext_resource type="Texture2D" uid="uid://8v6y28f0yjd1" path="res://assets/rata.png" id="2_id7o7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmyte"]
+atlas = ExtResource("2_id7o7")
+region = Rect2(0, 0, 240, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li0yj"]
+atlas = ExtResource("2_id7o7")
+region = Rect2(0, 180, 240, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkl2r"]
+atlas = ExtResource("2_id7o7")
+region = Rect2(240, 180, 240, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqhku"]
+atlas = ExtResource("2_id7o7")
+region = Rect2(240, 0, 240, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8eyrb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmyte")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li0yj")
+}],
+"loop": true,
+"name": &"jump1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkl2r")
+}],
+"loop": true,
+"name": &"jump2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqhku")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkcbv"]
+size = Vector2(44, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijxsc"]
+size = Vector2(84, 48)
+
+[node name="Rata" type="CharacterBody2D"]
+script = ExtResource("1_65w7b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -16)
+scale = Vector2(0.533333, 0.533333)
+sprite_frames = SubResource("SpriteFrames_8eyrb")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kkcbv")
+debug_color = Color(1, 0, 0.113725, 0.419608)
+
+[node name="Interaccion" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaccion"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_ijxsc")
+debug_color = Color(0, 0.596078, 0.729412, 0.419608)
+
+[connection signal="area_entered" from="Interaccion" to="." method="_on_tocando"]
+[connection signal="area_exited" from="Interaccion" to="." method="_on_dejando"]
+[connection signal="body_entered" from="Interaccion" to="." method="_on_tocando"]
+[connection signal="body_exited" from="Interaccion" to="." method="_on_dejando"]

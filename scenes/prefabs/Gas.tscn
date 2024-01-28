@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://28vrnc7ttyi2"]
+
+[ext_resource type="Script" path="res://scripts/objects/gas.gd" id="1_cevjk"]
+[ext_resource type="Texture2D" uid="uid://by17t6ay7nq6f" path="res://assets/garrrafa.png" id="2_a2yud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1c2qb"]
+size = Vector2(18, 26)
+
+[sub_resource type="Curve" id="Curve_fjwvk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mnkbc"]
+curve = SubResource("Curve_fjwvk")
+
+[sub_resource type="Curve" id="Curve_oqs3g"]
+_data = [Vector2(0, 0.327917), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lyh0g"]
+curve = SubResource("Curve_oqs3g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6iey5"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+angle_max = 45.0
+direction = Vector3(1, -200, 0)
+gravity = Vector3(0, -200, 0)
+scale_max = 100.0
+scale_curve = SubResource("CurveTexture_lyh0g")
+color = Color(0.615686, 0.890196, 0.788235, 0.741176)
+alpha_curve = SubResource("CurveTexture_mnkbc")
+turbulence_noise_strength = 6.63
+turbulence_noise_scale = 9.42
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_cevjk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_1c2qb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9.039)
+scale = Vector2(0.5, 0.499999)
+texture = ExtResource("2_a2yud")
+
+[node name="Humo" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(8, -48)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_6iey5")

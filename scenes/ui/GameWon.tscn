@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bon61q6wx70hs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3i4qw"]
+font_size = 100
+font_color = Color(0.105882, 0.454902, 0.290196, 0.858824)
+
+[node name="GameWon" type="Control"]
+process_mode = 3
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1941.0
+offset_bottom = 1088.0
+color = Color(0.6, 0.6, 0.6, 0.713726)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 392.0
+offset_right = 1872.0
+offset_bottom = 669.0
+text = "\"La seriedad retorna a la humanidad\"
+Final Neutral (pero bueno)"
+label_settings = SubResource("LabelSettings_3i4qw")
+horizontal_alignment = 1
+vertical_alignment = 1
