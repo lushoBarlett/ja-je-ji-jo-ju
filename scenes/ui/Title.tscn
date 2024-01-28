@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdfcgid40cp7b"]
+[gd_scene load_steps=3 format=3 uid="uid://s0fhny31o8ob"]
 
 [ext_resource type="Texture2D" uid="uid://65g4smmecung" path="res://assets/menu-carga.png" id="1_4l63k"]
+[ext_resource type="AudioStream" uid="uid://dp6eyhj63xeoe" path="res://assets/jajejijoju.wav" id="2_4640q"]
 
 [node name="GameNext" type="Control"]
 process_mode = 3
@@ -46,3 +47,7 @@ text = "Jugador 1: WASD
 Jugador 2: Flechas"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4640q")
+autoplay = true
