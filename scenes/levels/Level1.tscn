@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=3 uid="uid://dt3kukb5wep5i"]
 
 [ext_resource type="Script" path="res://scripts/levels/level1.gd" id="1_os8u7"]
-[ext_resource type="PackedScene" uid="uid://bu2ms5lskq08r" path="res://scenes/ui/Fondo.tscn" id="2_1f71j"]
+[ext_resource type="PackedScene" path="res://scenes/ui/Fondo.tscn" id="2_1f71j"]
 [ext_resource type="PackedScene" uid="uid://dgxp506qteavq" path="res://scenes/prefabs/Rata.tscn" id="2_sjj3d"]
 [ext_resource type="Texture2D" uid="uid://bqbs1i3bg20f4" path="res://assets/tilemap.png" id="3_8rfcx"]
 [ext_resource type="PackedScene" uid="uid://dj1ncbvj7e77r" path="res://scenes/ui/Progreso.tscn" id="5_1jkbb"]
 [ext_resource type="AudioStream" uid="uid://b7af4wneigxb8" path="res://assets/secuencia1.wav" id="6_0008n"]
 [ext_resource type="PackedScene" uid="uid://bctk13xfvdj0u" path="res://scenes/prefabs/JaJa.tscn" id="6_aaodc"]
 [ext_resource type="Script" path="res://scripts/control/secuencia1.gd" id="7_ia2ju"]
-[ext_resource type="AudioStream" uid="uid://mb65pjkr0lyh" path="res://assets/meloB1.wav" id="8_3j72v"]
+[ext_resource type="AudioStream" uid="uid://posuykhehfra" path="res://assets/melo2AyB.wav" id="8_u3ihq"]
 [ext_resource type="Script" path="res://scripts/control/chords.gd" id="9_5syny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iibmt"]
@@ -3347,8 +3347,8 @@ stream = ExtResource("6_0008n")
 autoplay = true
 script = ExtResource("7_ia2ju")
 
-[node name="meloB" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_3j72v")
+[node name="melo2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_u3ihq")
 script = ExtResource("9_5syny")
 
 [node name="Progreso" parent="." instance=ExtResource("5_1jkbb")]
@@ -3357,7 +3357,7 @@ VELOCIDAD = 0
 DISIPACION = 20
 metadata/_edit_lock_ = true
 
-[connection signal="muerte" from="Jugadores/Rata2" to="meloB" method="_on_rata_2_muerte"]
-[connection signal="lupie" from="secuencia1" to="meloB" method="_on_secuencia_1_lupie"]
+[connection signal="muerte" from="Jugadores/Rata2" to="melo2" method="_on_rata_2_muerte"]
+[connection signal="lupie" from="secuencia1" to="melo2" method="_on_secuencia_1_lupie"]
 [connection signal="llenada" from="Progreso" to="." method="perdi"]
 [connection signal="vaciada" from="Progreso" to="." method="gane"]

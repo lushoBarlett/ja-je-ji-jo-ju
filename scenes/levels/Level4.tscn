@@ -1,13 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://dy107rgnsncwa"]
+[gd_scene load_steps=18 format=3 uid="uid://c8ldjta1h0j28"]
 
 [ext_resource type="Script" path="res://scenes/levels/Level4.gd" id="1_qw7up"]
-[ext_resource type="PackedScene" uid="uid://bu2ms5lskq08r" path="res://scenes/ui/Fondo.tscn" id="2_ksy2o"]
+[ext_resource type="PackedScene" path="res://scenes/ui/Fondo.tscn" id="2_ksy2o"]
 [ext_resource type="Texture2D" uid="uid://bqbs1i3bg20f4" path="res://assets/tilemap.png" id="3_2h82o"]
 [ext_resource type="PackedScene" uid="uid://dj1ncbvj7e77r" path="res://scenes/ui/Progreso.tscn" id="5_56upr"]
 [ext_resource type="PackedScene" uid="uid://dnam188cfqgn5" path="res://scenes/prefabs/carlitox.tscn" id="5_qgpu5"]
 [ext_resource type="PackedScene" uid="uid://dgxp506qteavq" path="res://scenes/prefabs/Rata.tscn" id="6_yongn"]
-[ext_resource type="AudioStream" uid="uid://logi8x6nvr8w" path="res://assets/lup1.wav" id="7_0yukf"]
-[ext_resource type="AudioStream" uid="uid://ci6swctlc0ih6" path="res://assets/chords.wav" id="8_4q6yd"]
+[ext_resource type="AudioStream" uid="uid://bggf1ktdd7ugf" path="res://assets/nivel4/drums.wav" id="7_q2wdu"]
+[ext_resource type="Script" path="res://scenes/levels/DRUMS.gd" id="8_7he6u"]
+[ext_resource type="AudioStream" uid="uid://bsywi56crjh11" path="res://assets/nivel4/acordes.wav" id="8_uj2v8"]
+[ext_resource type="AudioStream" uid="uid://doow4kahgws88" path="res://assets/nivel4/melo1.wav" id="9_kb0pd"]
+[ext_resource type="AudioStream" uid="uid://cve06mawvk1q1" path="res://assets/nivel4/melo2AyB.wav" id="10_dg0cg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iibmt"]
 texture = ExtResource("3_2h82o")
@@ -3328,9 +3331,13 @@ VELOCIDAD = 1
 DISIPACION = 20
 metadata/_edit_lock_ = true
 
-[node name="Carlitox" parent="." instance=ExtResource("5_qgpu5")]
+[node name="Carlitox" parent="." node_paths=PackedStringArray("DRUMS", "CHORDS", "MELO1", "MELO2") instance=ExtResource("5_qgpu5")]
 unique_name_in_owner = true
 position = Vector2(963, 292)
+DRUMS = NodePath("../DRUMS")
+CHORDS = NodePath("../CHORDS")
+MELO1 = NodePath("../MELO1")
+MELO2 = NodePath("../MELO2")
 
 [node name="Jugadores" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -3347,11 +3354,19 @@ collision_layer = 2
 collision_mask = 2
 player = 2
 
-[node name="Lup1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_0yukf")
+[node name="DRUMS" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_q2wdu")
+autoplay = true
+script = ExtResource("8_7he6u")
 
-[node name="Lup2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_4q6yd")
+[node name="CHORDS" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_uj2v8")
+
+[node name="MELO1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_kb0pd")
+
+[node name="MELO2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_dg0cg")
 
 [node name="borde_sup" type="StaticBody2D" parent="."]
 
@@ -3380,3 +3395,4 @@ shape = SubResource("RectangleShape2D_shidg")
 
 [connection signal="llenada" from="Progreso" to="." method="perdi"]
 [connection signal="vaciada" from="Progreso" to="." method="gane"]
+[connection signal="lupie" from="DRUMS" to="Carlitox" method="_on_drums_lupie"]
