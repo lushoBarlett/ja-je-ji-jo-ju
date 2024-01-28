@@ -7,7 +7,8 @@ var apuntar: Vector2
 const EXPLOSIVENESS = 2.5
 
 func _ready():
-	$AnimationPlayer.play("get_rotated")
+	$AnimationPlayer.play("jagrandote")
+	$sfx.play()
 
 func _process(delta):
 	apuntar *= 1 + (EXPLOSIVENESS - 1) * delta
