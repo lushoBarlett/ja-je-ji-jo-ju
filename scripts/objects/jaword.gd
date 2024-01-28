@@ -8,6 +8,7 @@ const EXPLOSIVENESS = 3
 
 func _ready():
 	$AnimationPlayer.play("jagrandote")
+	$sfx.play()
 
 func _process(delta):
 	apuntar *= 1 + (EXPLOSIVENESS - 1) * delta
