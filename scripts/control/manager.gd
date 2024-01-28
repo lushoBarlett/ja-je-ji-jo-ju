@@ -59,6 +59,8 @@ func conectar_muertes():
 		rata.muerte.connect(mori)
 		
 func conectar_progreso():
+	Nivel.Progreso.VELOCIDAD = 2
+	Nivel.Progreso.DISIPACION = 4
 	Nivel.Progreso.llenada.connect(perdi)
 	Nivel.Progreso.vaciada.connect(gane)
 
@@ -72,7 +74,7 @@ func mori(rata):
 	# two players and one losing is a little harder
 	# tha single player
 	ratas.erase(rata)
-	Nivel.Progreso.DISIPACION *= 1.8
+	Nivel.Progreso.DISIPACION *= 1.6
 	if ratas.size() == 0:
 		perdi()
 
@@ -88,6 +90,7 @@ func cargar_nivel():
 	if Nivel:
 		remove_child(Nivel)
 	
+	print("res://scenes/levels/Level" + str(NIVEL) + ".tscn")
 	Nivel = load("res://scenes/levels/Level" + str(NIVEL) + ".tscn").instantiate()
 	add_child(Nivel)
 	get_tree().paused = false

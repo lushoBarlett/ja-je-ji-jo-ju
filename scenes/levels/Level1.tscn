@@ -3347,20 +3347,18 @@ collision_layer = 2
 collision_mask = 2
 player = 2
 
-<<<<<<< Updated upstream
 [node name="Lup1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_hkmx6")
 
 [node name="Lup2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_d67dn")
 autoplay = true
-=======
+
 [node name="Progreso" parent="." instance=ExtResource("5_1jkbb")]
 unique_name_in_owner = true
 VELOCIDAD = 0
 DISIPACION = 20
 metadata/_edit_lock_ = true
->>>>>>> Stashed changes
 
 [connection signal="llenada" from="Progreso" to="." method="perdi"]
 [connection signal="vaciada" from="Progreso" to="." method="gane"]

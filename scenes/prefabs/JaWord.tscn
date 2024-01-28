@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://buiicgmlv80jm"]
 
-[ext_resource type="Script" path="res://scripts/objects/jaword.gd" id="1_kc3hp"]
+[ext_resource type="Script" path="res://scripts/objects/diamante.gd" id="1_2ts4r"]
 [ext_resource type="Texture2D" uid="uid://c27k7mk1brl5v" path="res://assets/ja.png" id="2_oniqx"]
 [ext_resource type="AudioStream" uid="uid://q3via1fu1yn3" path="res://assets/sfx-ja1.wav" id="3_w3sxn"]
-[ext_resource type="Script" path="res://scripts/control/sfx DEAD.gd" id="4_5bfuo"]
+[ext_resource type="Script" path="res://scripts/control/sfx DEAD.gd" id="4_ip7xx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfqwm"]
 size = Vector2(40, 36)
@@ -31,7 +31,7 @@ _data = {
 [node name="JaWord" type="RigidBody2D"]
 collision_layer = 3
 collision_mask = 0
-script = ExtResource("1_kc3hp")
+script = ExtResource("1_2ts4r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_nfqwm")
@@ -49,4 +49,4 @@ libraries = {
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_w3sxn")
 volume_db = 19.047
-script = ExtResource("4_5bfuo")
+script = ExtResource("4_ip7xx")

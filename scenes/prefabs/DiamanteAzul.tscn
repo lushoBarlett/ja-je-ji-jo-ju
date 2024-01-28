@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dtiyldcr767qx"]
 
-[ext_resource type="Script" path="res://scripts/objects/jaword.gd" id="1_qjcwi"]
+[ext_resource type="Script" path="res://scripts/objects/diamante.gd" id="1_qjcwi"]
 [ext_resource type="Texture2D" uid="uid://bl52pt2p1we2a" path="res://assets/juju - diamante azul.png" id="2_e5efj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_euuyh"]
