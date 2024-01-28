@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://dt3kukb5wep5i"]
 
 [ext_resource type="Script" path="res://scripts/levels/level1.gd" id="1_os8u7"]
+[ext_resource type="PackedScene" uid="uid://bu2ms5lskq08r" path="res://scenes/ui/Fondo.tscn" id="2_1f71j"]
 [ext_resource type="Texture2D" uid="uid://c2c3u2335kwqr" path="res://assets/autotile_tileset.png" id="2_7p4lr"]
 [ext_resource type="PackedScene" uid="uid://dgxp506qteavq" path="res://scenes/prefabs/Rata.tscn" id="2_sjj3d"]
-[ext_resource type="Texture2D" uid="uid://b3h0ja0cq6rtt" path="res://assets/background.jpg" id="3_krlgv"]
 [ext_resource type="PackedScene" uid="uid://dj1ncbvj7e77r" path="res://scenes/ui/Progreso.tscn" id="5_1jkbb"]
 [ext_resource type="PackedScene" uid="uid://bctk13xfvdj0u" path="res://scenes/prefabs/JaJa.tscn" id="6_aaodc"]
 [ext_resource type="AudioStream" uid="uid://logi8x6nvr8w" path="res://assets/lup1.wav" id="7_hkmx6"]
@@ -3279,14 +3279,7 @@ point_count = 2
 process_mode = 1
 script = ExtResource("1_os8u7")
 
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="Sprite2D" type="Sprite2D" parent="Background"]
-z_index = -80
-position = Vector2(961, 527)
-scale = Vector2(2.78857, 2.815)
-texture = ExtResource("3_krlgv")
+[node name="Background" parent="." instance=ExtResource("2_1f71j")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_rgj6k")
