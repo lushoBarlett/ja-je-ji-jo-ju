@@ -3347,7 +3347,6 @@ collision_layer = 2
 collision_mask = 2
 player = 2
 
-<<<<<<< Updated upstream
 [node name="secuencia1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_aqoqk")
 autoplay = true
@@ -3360,17 +3359,16 @@ script = ExtResource("9_ipeox")
 [node name="sfx DEAD" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_lxq23")
 script = ExtResource("11_juqkf")
-=======
+
 [node name="Progreso" parent="." instance=ExtResource("5_cb40b")]
 unique_name_in_owner = true
 VELOCIDAD = 2
 DISIPACION = 3
 metadata/_edit_lock_ = true
->>>>>>> Stashed changes
 
-[connection signal="llenada" from="Progreso" to="." method="perdi"]
-[connection signal="vaciada" from="Progreso" to="." method="gane"]
 [connection signal="muerte" from="Jugadores/Rata1" to="meloB" method="_on_rata_1_muerte"]
 [connection signal="muerte" from="Jugadores/Rata1" to="sfx DEAD" method="_on_rata_1_muerte"]
 [connection signal="muerte" from="Jugadores/Rata2" to="sfx DEAD" method="_on_rata_2_muerte"]
 [connection signal="lupie" from="secuencia1" to="meloB" method="_on_secuencia_1_lupie"]
+[connection signal="llenada" from="Progreso" to="." method="perdi"]
+[connection signal="vaciada" from="Progreso" to="." method="gane"]
