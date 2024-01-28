@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ic58vevujqd"]
+[gd_scene load_steps=11 format=3 uid="uid://ctid5w1x0axkp"]
 
 [ext_resource type="Script" path="res://scripts/objects/jeje.gd" id="1_47lj2"]
 [ext_resource type="Texture2D" uid="uid://crxr6c7b03tkv" path="res://assets/jeje-michi-tanque.png" id="2_762jk"]
@@ -72,10 +72,10 @@ tracks/3/path = NodePath("BrazoIzq:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.9),
+"times": PackedFloat32Array(0, 0.7, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-77, -50), Vector2(-77, -47), Vector2(-77, -50)]
+"values": [Vector2(-90, -65), Vector2(-90, -60), Vector2(-90, -65)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -84,7 +84,7 @@ tracks/4/path = NodePath("BrazoDer:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.7),
+"times": PackedFloat32Array(0, 0.5, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(93, -45), Vector2(93, -43), Vector2(93, -45)]
@@ -151,7 +151,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-77, -50), Vector2(-77, -47), Vector2(-77, -50)]
+"values": [Vector2(-90, -65), Vector2(-90, -61), Vector2(-90, -65)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -186,16 +186,22 @@ _data = {
 
 [node name="JeJe" type="Node2D"]
 script = ExtResource("1_47lj2")
-SPEED = 1.0
-FORCE = 500.0
+SPEED = 10.0
+FORCE = 300.0
 
 [node name="Tanque" type="Sprite2D" parent="."]
-position = Vector2(70, -11)
+position = Vector2(70, -10.4814)
 texture = ExtResource("2_762jk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 0.0864329)
+scale = Vector2(1, 0.998848)
+sprite_frames = SubResource("SpriteFrames_udy8v")
+animation = &"crazy"
 
 [node name="BrazoIzq" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-77, -50)
+position = Vector2(-90, -64.7531)
 texture = ExtResource("3_phu5r")
 offset = Vector2(-35, 40)
 
@@ -204,21 +210,18 @@ position = Vector2(-94, 86)
 
 [node name="BrazoDer" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(93, -45)
+position = Vector2(93, -44.8617)
 texture = ExtResource("4_2qta4")
 offset = Vector2(40, 40)
 
 [node name="Boca" type="Marker2D" parent="BrazoDer"]
 position = Vector2(97, 86)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_udy8v")
-animation = &"crazy"
-
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 process_callback = 0
-wait_time = 5.0
+wait_time = 8.0
+autostart = true
 
 [node name="Caminata" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
