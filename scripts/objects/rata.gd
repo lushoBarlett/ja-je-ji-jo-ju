@@ -96,10 +96,11 @@ func is_enemy(e):
 func die():
 	muerte.emit(self)
 	$sfx_dead.play()
+	$AnimatedSprite2D.visible = false
+	$CollisionShape2D.disabled = true
 	await get_tree().create_timer(0.5).timeout
 	queue_free()
 	
-
 func _on_tocando(b):
 	if is_gas(b):
 		gases.append(b)

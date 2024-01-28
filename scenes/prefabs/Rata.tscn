@@ -72,13 +72,14 @@ sprite_frames = SubResource("SpriteFrames_8eyrb")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_kkcbv")
 debug_color = Color(1, 0, 0.113725, 0.419608)
 
 [node name="Interaccion" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaccion"]
-position = Vector2(0, -14)
+position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_ijxsc")
 debug_color = Color(0, 0.596078, 0.729412, 0.419608)
 
