@@ -72,6 +72,7 @@ sprite_frames = SubResource("SpriteFrames_8eyrb")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_kkcbv")
 debug_color = Color(1, 0, 0.113725, 0.419608)
 
