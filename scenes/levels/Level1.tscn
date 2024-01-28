@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dt3kukb5wep5i"]
+[gd_scene load_steps=12 format=3 uid="uid://dt3kukb5wep5i"]
 
 [ext_resource type="Script" path="res://scripts/levels/level1.gd" id="1_os8u7"]
 [ext_resource type="Texture2D" uid="uid://c2c3u2335kwqr" path="res://assets/autotile_tileset.png" id="2_7p4lr"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b3h0ja0cq6rtt" path="res://assets/background.jpg" id="3_krlgv"]
 [ext_resource type="PackedScene" uid="uid://dj1ncbvj7e77r" path="res://scenes/ui/Progreso.tscn" id="5_1jkbb"]
 [ext_resource type="PackedScene" uid="uid://bctk13xfvdj0u" path="res://scenes/prefabs/JaJa.tscn" id="6_aaodc"]
+[ext_resource type="AudioStream" uid="uid://logi8x6nvr8w" path="res://assets/lup1.wav" id="7_hkmx6"]
+[ext_resource type="AudioStream" uid="uid://ci6swctlc0ih6" path="res://assets/chords.wav" id="8_d67dn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iibmt"]
 texture = ExtResource("2_7p4lr")
@@ -3350,6 +3352,13 @@ position = Vector2(1134, 760)
 collision_layer = 2
 collision_mask = 2
 player = 2
+
+[node name="Lup1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_hkmx6")
+
+[node name="Lup2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_d67dn")
+autoplay = true
 
 [connection signal="llenada" from="Progreso" to="." method="perdi"]
 [connection signal="vaciada" from="Progreso" to="." method="gane"]
