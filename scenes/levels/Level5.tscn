@@ -1,16 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://bate4k0nwffhn"]
+[gd_scene load_steps=13 format=3 uid="uid://bi2ir7kg1cvea"]
 
 [ext_resource type="Script" path="res://scripts/levels/level5.gd" id="1_f18ff"]
-[ext_resource type="PackedScene" uid="uid://bu2ms5lskq08r" path="res://scenes/ui/Fondo.tscn" id="2_t51t7"]
+[ext_resource type="PackedScene" path="res://scenes/ui/Fondo.tscn" id="2_t51t7"]
 [ext_resource type="Texture2D" uid="uid://c2c3u2335kwqr" path="res://assets/autotile_tileset.png" id="3_2shjb"]
-[ext_resource type="PackedScene" uid="uid://bb6yo8t8l7f1q" path="res://scenes/prefabs/JuJu.tscn" id="4_qli50"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/JuJu.tscn" id="4_qli50"]
 [ext_resource type="PackedScene" uid="uid://dgxp506qteavq" path="res://scenes/prefabs/Rata.tscn" id="5_18knr"]
 [ext_resource type="AudioStream" uid="uid://b7af4wneigxb8" path="res://assets/secuencia1.wav" id="6_22oge"]
 [ext_resource type="Script" path="res://scripts/control/secuencia1.gd" id="7_3c2m6"]
 [ext_resource type="AudioStream" uid="uid://mb65pjkr0lyh" path="res://assets/meloB1.wav" id="8_tde5y"]
 [ext_resource type="Script" path="res://scripts/control/chords.gd" id="9_ya6e0"]
-[ext_resource type="AudioStream" uid="uid://bh5ncd7jc5qlo" path="res://assets/ratded-v2.wav" id="10_r5nkl"]
-[ext_resource type="Script" path="res://scripts/control/sfx DEAD.gd" id="11_gs42r"]
 [ext_resource type="PackedScene" uid="uid://dj1ncbvj7e77r" path="res://scenes/ui/Progreso.tscn" id="12_uck6b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iibmt"]
@@ -3339,10 +3337,6 @@ script = ExtResource("7_3c2m6")
 stream = ExtResource("8_tde5y")
 script = ExtResource("9_ya6e0")
 
-[node name="sfx DEAD" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_r5nkl")
-script = ExtResource("11_gs42r")
-
 [node name="Progreso" parent="." instance=ExtResource("12_uck6b")]
 unique_name_in_owner = true
 VELOCIDAD = 2
@@ -3350,8 +3344,6 @@ DISIPACION = 3
 metadata/_edit_lock_ = true
 
 [connection signal="muerte" from="Jugadores/Rata1" to="meloB" method="_on_rata_1_muerte"]
-[connection signal="muerte" from="Jugadores/Rata1" to="sfx DEAD" method="_on_rata_1_muerte"]
-[connection signal="muerte" from="Jugadores/Rata2" to="sfx DEAD" method="_on_rata_2_muerte"]
 [connection signal="lupie" from="secuencia1" to="meloB" method="_on_secuencia_1_lupie"]
 [connection signal="llenada" from="Progreso" to="." method="perdi"]
 [connection signal="vaciada" from="Progreso" to="." method="gane"]

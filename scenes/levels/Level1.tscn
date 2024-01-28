@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dt3kukb5wep5i"]
+[gd_scene load_steps=14 format=3 uid="uid://dt3kukb5wep5i"]
 
 [ext_resource type="Script" path="res://scripts/levels/level1.gd" id="1_os8u7"]
-[ext_resource type="PackedScene" uid="uid://bu2ms5lskq08r" path="res://scenes/ui/Fondo.tscn" id="2_1f71j"]
+[ext_resource type="PackedScene" path="res://scenes/ui/Fondo.tscn" id="2_1f71j"]
 [ext_resource type="Texture2D" uid="uid://c2c3u2335kwqr" path="res://assets/autotile_tileset.png" id="2_7p4lr"]
 [ext_resource type="PackedScene" uid="uid://dgxp506qteavq" path="res://scenes/prefabs/Rata.tscn" id="2_sjj3d"]
 [ext_resource type="PackedScene" uid="uid://dj1ncbvj7e77r" path="res://scenes/ui/Progreso.tscn" id="5_1jkbb"]
@@ -10,8 +10,6 @@
 [ext_resource type="Script" path="res://scripts/control/secuencia1.gd" id="7_ia2ju"]
 [ext_resource type="AudioStream" uid="uid://mb65pjkr0lyh" path="res://assets/meloB1.wav" id="8_3j72v"]
 [ext_resource type="Script" path="res://scripts/control/chords.gd" id="9_5syny"]
-[ext_resource type="AudioStream" uid="uid://bh5ncd7jc5qlo" path="res://assets/ratded-v2.wav" id="10_3qo5n"]
-[ext_resource type="Script" path="res://scripts/control/sfx DEAD.gd" id="11_elnfk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iibmt"]
 texture = ExtResource("2_7p4lr")
@@ -3353,16 +3351,13 @@ script = ExtResource("7_ia2ju")
 stream = ExtResource("8_3j72v")
 script = ExtResource("9_5syny")
 
-[node name="sfx DEAD" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_3qo5n")
-script = ExtResource("11_elnfk")
-
 [node name="Progreso" parent="." instance=ExtResource("5_1jkbb")]
 unique_name_in_owner = true
 VELOCIDAD = 0
 DISIPACION = 20
 metadata/_edit_lock_ = true
 
+[connection signal="muerte" from="Jugadores/Rata2" to="meloB" method="_on_rata_2_muerte"]
 [connection signal="lupie" from="secuencia1" to="meloB" method="_on_secuencia_1_lupie"]
 [connection signal="llenada" from="Progreso" to="." method="perdi"]
 [connection signal="vaciada" from="Progreso" to="." method="gane"]

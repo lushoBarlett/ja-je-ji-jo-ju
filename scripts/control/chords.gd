@@ -17,6 +17,11 @@ func _process(delta):
 func _on_rata_1_muerte(rata):
 	HAY_RATA_MUERTA = true
 
+func _on_rata_2_muerte(rata):
+	HAY_RATA_MUERTA = true
+	
+
+
 
 
 func _on_secuencia_1_lupie():
