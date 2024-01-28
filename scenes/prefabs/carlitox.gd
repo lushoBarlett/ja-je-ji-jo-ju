@@ -34,7 +34,7 @@ func _on_body_entered(body):
 
 
 func acelerar():
-	SPEED += 100
+	SPEED += 20
 	$AnimationPlayer.play('mover_las_patas')
 	$sfx_jojojo.play()
 
