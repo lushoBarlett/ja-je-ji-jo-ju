@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dt3kukb5wep5i"]
+[gd_scene load_steps=11 format=3 uid="uid://dt3kukb5wep5i"]
 
 [ext_resource type="Script" path="res://scripts/levels/level1.gd" id="1_os8u7"]
 [ext_resource type="PackedScene" uid="uid://bu2ms5lskq08r" path="res://scenes/ui/Fondo.tscn" id="2_1f71j"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dgxp506qteavq" path="res://scenes/prefabs/Rata.tscn" id="2_sjj3d"]
 [ext_resource type="PackedScene" uid="uid://dj1ncbvj7e77r" path="res://scenes/ui/Progreso.tscn" id="5_1jkbb"]
 [ext_resource type="PackedScene" uid="uid://bctk13xfvdj0u" path="res://scenes/prefabs/JaJa.tscn" id="6_aaodc"]
-[ext_resource type="AudioStream" uid="uid://logi8x6nvr8w" path="res://assets/lup1.wav" id="7_hkmx6"]
 [ext_resource type="AudioStream" uid="uid://ci6swctlc0ih6" path="res://assets/chords.wav" id="8_d67dn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iibmt"]

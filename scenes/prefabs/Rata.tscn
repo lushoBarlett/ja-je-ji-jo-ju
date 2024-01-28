@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgxp506qteavq"]
+[gd_scene load_steps=11 format=3 uid="uid://dgxp506qteavq"]
 
 [ext_resource type="Script" path="res://scripts/objects/rata.gd" id="1_65w7b"]
 [ext_resource type="Texture2D" uid="uid://8v6y28f0yjd1" path="res://assets/rata.png" id="2_id7o7"]
+[ext_resource type="AudioStream" uid="uid://bh5ncd7jc5qlo" path="res://assets/ratded-v2.wav" id="3_080aw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmyte"]
 atlas = ExtResource("2_id7o7")
@@ -80,6 +81,11 @@ debug_color = Color(1, 0, 0.113725, 0.419608)
 position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_ijxsc")
 debug_color = Color(0, 0.596078, 0.729412, 0.419608)
+
+[node name="sfx_dead" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_080aw")
+volume_db = 12.0
 
 [connection signal="area_entered" from="Interaccion" to="." method="_on_tocando"]
 [connection signal="area_exited" from="Interaccion" to="." method="_on_dejando"]

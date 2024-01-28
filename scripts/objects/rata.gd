@@ -95,7 +95,10 @@ func is_enemy(e):
 
 func die():
 	muerte.emit(self)
+	$sfx_dead.play()
+	await get_tree().create_timer(0.5).timeout
 	queue_free()
+	
 
 func _on_tocando(b):
 	if is_gas(b):

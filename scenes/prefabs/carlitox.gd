@@ -1,14 +1,14 @@
 extends RigidBody2D
 
 var ratas = []
+var GameFunction
 
 @export var SPEED = 200.0
 
 var velocity:Vector2 = Vector2(-SPEED,-SPEED)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	apply_impulse(velocity)
-	pass
+	$cuerpoBoca.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,10 +30,11 @@ func _on_body_entered(body):
 		velocity[0] = -SPEED
 			
 		
-	
+	GameFunction = "Enemy"
 
 
 func acelerar():
-	
+	SPEED += 100
 	$AnimationPlayer.play('mover_las_patas')
+	$sfx_jojojo.play()
 

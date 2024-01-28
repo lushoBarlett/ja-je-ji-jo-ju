@@ -3352,7 +3352,6 @@ stream = ExtResource("7_0yukf")
 
 [node name="Lup2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_4q6yd")
-autoplay = true
 
 [node name="borde_sup" type="StaticBody2D" parent="."]
 
