@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dj1ncbvj7e77r" path="res://scenes/ui/Progreso.tscn" id="5_cb40b"]
 [ext_resource type="PackedScene" uid="uid://dgxp506qteavq" path="res://scenes/prefabs/Rata.tscn" id="6_mut3w"]
 [ext_resource type="AudioStream" uid="uid://b7af4wneigxb8" path="res://assets/secuencia1.wav" id="7_aqoqk"]
-[ext_resource type="Script" path="res://scenes/levels/secuencia1.gd" id="8_hfdkd"]
-[ext_resource type="Script" path="res://scenes/levels/chords.gd" id="9_ipeox"]
+[ext_resource type="Script" path="res://scripts/control/secuencia1.gd" id="8_hfdkd"]
+[ext_resource type="Script" path="res://scripts/control/chords.gd" id="9_ipeox"]
 [ext_resource type="AudioStream" uid="uid://mb65pjkr0lyh" path="res://assets/meloB1.wav" id="9_t0w7l"]
-[ext_resource type="Script" path="res://scenes/levels/sfx DEAD.gd" id="11_juqkf"]
+[ext_resource type="Script" path="res://scripts/control/sfx DEAD.gd" id="11_juqkf"]
 [ext_resource type="AudioStream" uid="uid://bh5ncd7jc5qlo" path="res://assets/ratded-v2.wav" id="11_lxq23"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iibmt"]

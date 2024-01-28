@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/objects/jaword.gd" id="1_kc3hp"]
 [ext_resource type="Texture2D" uid="uid://c27k7mk1brl5v" path="res://assets/ja.png" id="2_oniqx"]
 [ext_resource type="AudioStream" uid="uid://q3via1fu1yn3" path="res://assets/sfx-ja1.wav" id="3_w3sxn"]
-[ext_resource type="Script" path="res://scenes/levels/sfx DEAD.gd" id="4_5bfuo"]
+[ext_resource type="Script" path="res://scripts/control/sfx DEAD.gd" id="4_5bfuo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfqwm"]
 size = Vector2(40, 36)
