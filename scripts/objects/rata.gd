@@ -97,11 +97,12 @@ func is_enemy(e):
 	return "GameFunction" in e and e.GameFunction == "Enemy"
 
 func die():
-	muerte.emit(self)
+	
 	$sfx_dead.play()
-	$AnimatedSprite2D.visible = false
-	$CollisionShape2D.disabled = true
-	await get_tree().create_timer(0.5).timeout
+	$Sprite.flip_v = true
+	$CollisionShape2D.set_deferred("disabled", true)
+	muerte.emit(self)
+	await get_tree().create_timer(1).timeout
 	queue_free()
 	
 func _on_tocando(b):

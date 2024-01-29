@@ -145,7 +145,6 @@ scale = Vector2(0.533, 0.533)
 texture = ExtResource("2_q7oby")
 hframes = 2
 vframes = 2
-frame = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
