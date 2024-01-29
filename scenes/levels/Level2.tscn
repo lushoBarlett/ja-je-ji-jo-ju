@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cnyoq17jgulgr"]
 
 [ext_resource type="Script" path="res://scripts/levels/level2.gd" id="1_qmai3"]
-[ext_resource type="PackedScene" uid="uid://bu2ms5lskq08r" path="res://scenes/ui/Fondo.tscn" id="2_q6syb"]
+[ext_resource type="PackedScene" path="res://scenes/ui/Fondo.tscn" id="2_q6syb"]
 [ext_resource type="Texture2D" uid="uid://bqbs1i3bg20f4" path="res://assets/tilemap.png" id="3_0kj2m"]
 [ext_resource type="PackedScene" uid="uid://ctid5w1x0axkp" path="res://scenes/prefabs/JeJe.tscn" id="4_yp7it"]
 [ext_resource type="PackedScene" uid="uid://dj1ncbvj7e77r" path="res://scenes/ui/Progreso.tscn" id="5_cb40b"]
@@ -3354,6 +3354,7 @@ DISIPACION = 3
 metadata/_edit_lock_ = true
 
 [connection signal="muerte" from="Jugadores/Rata1" to="melo2" method="_on_rata_1_muerte"]
+[connection signal="muerte" from="Jugadores/Rata2" to="melo2" method="_on_rata_2_muerte"]
 [connection signal="lupie" from="secuencia1" to="melo2" method="_on_secuencia_1_lupie"]
 [connection signal="llenada" from="Progreso" to="." method="perdi"]
 [connection signal="vaciada" from="Progreso" to="." method="gane"]

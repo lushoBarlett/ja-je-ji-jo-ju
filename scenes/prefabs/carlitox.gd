@@ -48,8 +48,7 @@ func acelerar():
 
 
 func _on_drums_lupie():
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
 	if veces >= 1 and not CHORDS.playing:
 		CHORDS.play()
 		print('entran chords')
@@ -59,16 +58,10 @@ func _on_drums_lupie():
 	if veces >= 5 and not MELO2.playing:
 		MELO2.play()
 		print('entra melo2')
-=======
-=======
->>>>>>> Stashed changes
+
 	if veces == 1:
 		CHORDS.play()
 	if veces == 2:
 		MELO1.play() 
 	if veces == 3:
 		MELO2.play()
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes

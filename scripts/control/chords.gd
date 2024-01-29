@@ -16,9 +16,11 @@ func _process(delta):
 
 func _on_rata_1_muerte(rata):
 	HAY_RATA_MUERTA = true
+	print('ded 1')
 
 func _on_rata_2_muerte(rata):
 	HAY_RATA_MUERTA = true
+	print('ded 2')
 	
 
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://dwsc4pd802oer"]
 
-[ext_resource type="PackedScene" uid="uid://bu2ms5lskq08r" path="res://scenes/ui/Fondo.tscn" id="2_3weq0"]
+[ext_resource type="PackedScene" path="res://scenes/ui/Fondo.tscn" id="2_3weq0"]
 [ext_resource type="Texture2D" uid="uid://bqbs1i3bg20f4" path="res://assets/tilemap.png" id="3_yjirn"]
-[ext_resource type="PackedScene" uid="uid://bvpsx0k4cie2r" path="res://scenes/prefabs/JiJi.tscn" id="4_25gev"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/JiJi.tscn" id="4_25gev"]
 [ext_resource type="Script" path="res://scripts/levels/level3.gd" id="5_c0337"]
 [ext_resource type="PackedScene" uid="uid://dgxp506qteavq" path="res://scenes/prefabs/Rata.tscn" id="5_efd5s"]
 [ext_resource type="AudioStream" uid="uid://b7af4wneigxb8" path="res://assets/secuencia1.wav" id="6_h1byj"]
@@ -3344,6 +3344,7 @@ DISIPACION = 3
 metadata/_edit_lock_ = true
 
 [connection signal="muerte" from="Jugadores/Rata1" to="melo2" method="_on_rata_1_muerte"]
+[connection signal="muerte" from="Jugadores/Rata2" to="melo2" method="_on_rata_2_muerte"]
 [connection signal="lupie" from="secuencia1" to="melo2" method="_on_secuencia_1_lupie"]
 [connection signal="llenada" from="Progreso" to="." method="perdi"]
 [connection signal="vaciada" from="Progreso" to="." method="gane"]
