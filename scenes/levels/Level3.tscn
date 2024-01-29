@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://dwsc4pd802oer"]
 
-[ext_resource type="PackedScene" path="res://scenes/ui/Fondo.tscn" id="2_3weq0"]
+[ext_resource type="PackedScene" uid="uid://bu2ms5lskq08r" path="res://scenes/ui/Fondo.tscn" id="2_3weq0"]
 [ext_resource type="Texture2D" uid="uid://bqbs1i3bg20f4" path="res://assets/tilemap.png" id="3_yjirn"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/JiJi.tscn" id="4_25gev"]
+[ext_resource type="PackedScene" uid="uid://bvpsx0k4cie2r" path="res://scenes/prefabs/JiJi.tscn" id="4_25gev"]
 [ext_resource type="Script" path="res://scripts/levels/level3.gd" id="5_c0337"]
 [ext_resource type="PackedScene" uid="uid://dgxp506qteavq" path="res://scenes/prefabs/Rata.tscn" id="5_efd5s"]
 [ext_resource type="AudioStream" uid="uid://b7af4wneigxb8" path="res://assets/secuencia1.wav" id="6_h1byj"]

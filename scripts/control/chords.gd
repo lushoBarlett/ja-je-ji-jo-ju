@@ -27,6 +27,6 @@ func _on_rata_2_muerte(rata):
 
 
 func _on_secuencia_1_lupie():
-	if HAY_RATA_MUERTA:
+	if HAY_RATA_MUERTA and not playing:
 		play()
 
