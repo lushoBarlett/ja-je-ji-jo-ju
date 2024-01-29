@@ -8,11 +8,14 @@ const SPEED = 400.0
 const JUMP_VELOCITY = -900.0
 
 @export var player: int
+@export var skin: Texture2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.5
-
 var gases = []
+
+func _ready():
+	%Sprite.texture = skin
 
 func p_action(action: String):
 	return "p" + str(player) + action
@@ -55,27 +58,27 @@ func tapar_control():
 
 func select_sprite():
 	if velocity.y < 0:
-		%AnimatedSprite2D.play("jump1")
+		%Animar.play("jump1")
 	elif velocity.y > 0:
-		%AnimatedSprite2D.play("jump2")
+		%Animar.play("jump2")
 	elif velocity.x != 0:
-		%AnimatedSprite2D.play("walk")
+		%Animar.play("walk")
 	else:
-		%AnimatedSprite2D.play("idle")
+		%Animar.play("idle")
 
 func select_sprite_rotation():
 	if velocity.x == 0:
-		%AnimatedSprite2D.rotation = 0
+		%Sprite.rotation = 0
 	elif velocity.length() != 0:
-		%AnimatedSprite2D.rotation = clampf(atan(velocity.y / velocity.x) , -1, 1)
+		%Sprite.rotation = clampf(atan(velocity.y / velocity.x) , -1, 1)
 	else:
-		%AnimatedSprite2D.rotation = 0
+		%Sprite.rotation = 0
 
 func select_sprite_orientation():
 	if velocity.x > 0:
-		%AnimatedSprite2D.flip_h = false
+		%Sprite.flip_h = false
 	elif velocity.x < 0:
-		%AnimatedSprite2D.flip_h = true
+		%Sprite.flip_h = true
 
 func _physics_process(delta):
 	apply_gravity(delta)
