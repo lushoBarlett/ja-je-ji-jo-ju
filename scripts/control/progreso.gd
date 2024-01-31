@@ -3,12 +3,12 @@ extends Node2D
 signal vaciada
 signal llenada
 
-@export var VELOCIDAD: int
-@export var DISIPACION: int
+var VELOCIDAD: int
+var DISIPACION: int
+var INICIAL = 50
 
 var gases: int = 0
 var gases_tapados: int = 0
-@export var INICIAL = 50
 var barra = INICIAL
 
 func actualizar():

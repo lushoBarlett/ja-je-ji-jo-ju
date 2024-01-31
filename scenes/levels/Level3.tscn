@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwsc4pd802oer"]
+[gd_scene load_steps=13 format=3 uid="uid://c35ofv1xxeiah"]
 
 [ext_resource type="PackedScene" path="res://scenes/ui/Fondo.tscn" id="2_3weq0"]
 [ext_resource type="Texture2D" uid="uid://bqbs1i3bg20f4" path="res://assets/tilemap.png" id="3_yjirn"]
@@ -3339,8 +3339,6 @@ script = ExtResource("9_jdunw")
 
 [node name="Progreso" parent="." instance=ExtResource("12_b8knr")]
 unique_name_in_owner = true
-VELOCIDAD = 2
-DISIPACION = 3
 metadata/_edit_lock_ = true
 
 [connection signal="muerte" from="Jugadores/Rata1" to="melo2" method="_on_rata_1_muerte"]

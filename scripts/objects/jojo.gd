@@ -16,7 +16,7 @@ var veces = 0
 var velocity: Vector2 = Vector2(-SPEED,-SPEED)
 
 func _ready():
-	$cuerpoBoca.visible = false
+	$CuerpoBoca.visible = false
 
 func _process(_delta):
 	linear_velocity = velocity

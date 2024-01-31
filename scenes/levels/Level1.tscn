@@ -3353,8 +3353,6 @@ script = ExtResource("9_5syny")
 
 [node name="Progreso" parent="." instance=ExtResource("5_1jkbb")]
 unique_name_in_owner = true
-VELOCIDAD = 0
-DISIPACION = 20
 metadata/_edit_lock_ = true
 
 [connection signal="muerte" from="Jugadores/Rata2" to="melo2" method="_on_rata_2_muerte"]

@@ -3327,8 +3327,6 @@ position = Vector2(957, 285)
 
 [node name="Progreso" parent="." instance=ExtResource("5_56upr")]
 unique_name_in_owner = true
-VELOCIDAD = 1
-DISIPACION = 20
 metadata/_edit_lock_ = true
 
 [node name="JoJo" parent="." instance=ExtResource("5_qgpu5")]

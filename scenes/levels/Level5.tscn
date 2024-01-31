@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bate4k0nwffhn"]
+[gd_scene load_steps=13 format=3 uid="uid://cdef5fhm0owpk"]
 
 [ext_resource type="Script" path="res://scripts/levels/level5.gd" id="1_f18ff"]
 [ext_resource type="PackedScene" path="res://scenes/ui/Fondo.tscn" id="2_t51t7"]
@@ -3339,8 +3339,6 @@ script = ExtResource("9_ya6e0")
 
 [node name="Progreso" parent="." instance=ExtResource("12_uck6b")]
 unique_name_in_owner = true
-VELOCIDAD = 2
-DISIPACION = 3
 metadata/_edit_lock_ = true
 
 [connection signal="muerte" from="Jugadores/Rata1" to="melo2" method="_on_rata_1_muerte"]
