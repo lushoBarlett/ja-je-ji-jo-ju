@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dy107rgnsncwa"]
+[gd_scene load_steps=20 format=3 uid="uid://dy107rgnsncwa"]
 
 [ext_resource type="Script" path="res://scripts/levels/level4.gd" id="1_qw7up"]
 [ext_resource type="PackedScene" path="res://scenes/ui/Fondo.tscn" id="2_ksy2o"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dj1ncbvj7e77r" path="res://scenes/ui/Progreso.tscn" id="5_56upr"]
 [ext_resource type="PackedScene" uid="uid://dnam188cfqgn5" path="res://scenes/prefabs/Jojo.tscn" id="5_qgpu5"]
 [ext_resource type="PackedScene" uid="uid://dgxp506qteavq" path="res://scenes/prefabs/Rata.tscn" id="6_yongn"]
+[ext_resource type="Texture2D" uid="uid://dw4uafm0hogd1" path="res://assets/rata_blanca.png" id="7_6lusv"]
+[ext_resource type="Texture2D" uid="uid://8v6y28f0yjd1" path="res://assets/rata.png" id="7_h5dpr"]
 [ext_resource type="AudioStream" uid="uid://bggf1ktdd7ugf" path="res://assets/nivel4/drums.wav" id="7_q2wdu"]
 [ext_resource type="Script" path="res://scripts/control/drums.gd" id="8_7he6u"]
 [ext_resource type="AudioStream" uid="uid://bsywi56crjh11" path="res://assets/nivel4/acordes.wav" id="8_uj2v8"]
@@ -3336,6 +3338,7 @@ unique_name_in_owner = true
 z_index = 1
 position = Vector2(538, 1011)
 player = 1
+skin = ExtResource("7_h5dpr")
 
 [node name="Rata2" parent="Jugadores" instance=ExtResource("6_yongn")]
 z_index = 1
@@ -3343,6 +3346,7 @@ position = Vector2(1367, 1014)
 collision_layer = 2
 collision_mask = 2
 player = 2
+skin = ExtResource("7_6lusv")
 
 [node name="Progreso" parent="." instance=ExtResource("5_56upr")]
 unique_name_in_owner = true
