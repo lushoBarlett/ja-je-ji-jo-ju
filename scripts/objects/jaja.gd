@@ -33,11 +33,11 @@ func _physics_process(delta):
 func crear_ja(gpos: Vector2):
 	var ja: RigidBody2D = JaWord.instantiate()
 
+	add_child(ja)
+
 	ja.global_position = gpos
 
 	ja.gravity_scale = 0
-
-	add_child(ja)
 
 	return ja
 

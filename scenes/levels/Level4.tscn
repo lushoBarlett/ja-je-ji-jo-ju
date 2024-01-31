@@ -3331,13 +3331,9 @@ VELOCIDAD = 1
 DISIPACION = 20
 metadata/_edit_lock_ = true
 
-[node name="Carlitox" parent="." node_paths=PackedStringArray("DRUMS", "CHORDS", "MELO1", "MELO2") instance=ExtResource("5_qgpu5")]
+[node name="JoJo" parent="." instance=ExtResource("5_qgpu5")]
 unique_name_in_owner = true
 position = Vector2(963, 292)
-DRUMS = NodePath("../DRUMS")
-CHORDS = NodePath("../CHORDS")
-MELO1 = NodePath("../MELO1")
-MELO2 = NodePath("../MELO2")
 
 [node name="Jugadores" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -3395,4 +3391,4 @@ shape = SubResource("RectangleShape2D_shidg")
 
 [connection signal="llenada" from="Progreso" to="." method="perdi"]
 [connection signal="vaciada" from="Progreso" to="." method="gane"]
-[connection signal="lupie" from="DRUMS" to="Carlitox" method="_on_drums_lupie"]
+[connection signal="lupie" from="DRUMS" to="JoJo" method="_on_drums_lupie"]
