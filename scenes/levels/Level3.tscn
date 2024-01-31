@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=13 format=3 uid="uid://c35ofv1xxeiah"]
-=======
 [gd_scene load_steps=15 format=3 uid="uid://dwsc4pd802oer"]
->>>>>>> main
 
 [ext_resource type="PackedScene" uid="uid://bu2ms5lskq08r" path="res://scenes/ui/Fondo.tscn" id="2_3weq0"]
 [ext_resource type="Texture2D" uid="uid://bqbs1i3bg20f4" path="res://assets/tilemap.png" id="3_yjirn"]

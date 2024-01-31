@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=13 format=3 uid="uid://cdef5fhm0owpk"]
-=======
 [gd_scene load_steps=15 format=3 uid="uid://bate4k0nwffhn"]
->>>>>>> main
 
 [ext_resource type="Script" path="res://scripts/levels/level5.gd" id="1_f18ff"]
 [ext_resource type="PackedScene" uid="uid://bu2ms5lskq08r" path="res://scenes/ui/Fondo.tscn" id="2_t51t7"]
