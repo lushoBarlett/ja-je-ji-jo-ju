@@ -1,7 +1,5 @@
 extends AudioStreamPlayer
 
-# Luciano: no es igual al script de Drums?
-
 signal lupie
 
 var ult = 0

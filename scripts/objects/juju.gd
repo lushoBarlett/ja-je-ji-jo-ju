@@ -1,13 +1,13 @@
 extends Node2D
 
-var ratas = []
-
 @onready var DiamanteRosa = preload("res://scenes/prefabs/DiamanteRosa.tscn")
 @onready var DiamanteAzul = preload("res://scenes/prefabs/DiamanteAzul.tscn")
 
+var ratas = []
+
 func _ready():
 	idle()
-	
+
 var case: int
 
 var frame: int = 0
@@ -20,21 +20,21 @@ func diamante():
 
 func emit():
 	frame += 1
-	
+
 	if frame % 2 == 0:
-		var diamante: RigidBody2D = diamante()
-		add_child(diamante)
-		diamante.global_position = $Diamantes/OjoIzq.global_position
-		diamante.gravity_scale = 0
+		var d: RigidBody2D = diamante()
+		add_child(d)
+		d.global_position = $Diamantes/OjoIzq.global_position
+		d.gravity_scale = 0
 		var rata = ratas[case % ratas.size()]
-		diamante.constant_force = diamante.global_position.direction_to(rata.global_position).normalized() * 500
+		d.constant_force = d.global_position.direction_to(rata.global_position).normalized() * 500
 	else:
-		var diamante: RigidBody2D = diamante()
-		add_child(diamante)
-		diamante.global_position = $Diamantes/OjoDer.global_position
-		diamante.gravity_scale = 0
+		var d: RigidBody2D = diamante()
+		add_child(d)
+		d.global_position = $Diamantes/OjoDer.global_position
+		d.gravity_scale = 0
 		var rata = ratas[(1 - case) % ratas.size()]
-		diamante.constant_force = diamante.global_position.direction_to(rata.global_position).normalized() * 500
+		d.constant_force = d.global_position.direction_to(rata.global_position).normalized() * 500
 
 func idle():
 	$Animacion.play("idle")
@@ -55,4 +55,3 @@ func disparar():
 			emit()
 	else:
 		idle()
-	

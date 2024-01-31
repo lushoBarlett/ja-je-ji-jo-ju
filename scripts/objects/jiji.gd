@@ -16,7 +16,7 @@ func money():
 
 func _ready():
 	idle()
-	
+
 func get_random_unit() -> Vector2:
 	var x1 = randf_range(-1, 1)
 	var x2 = randf_range(-1, 1)
@@ -29,13 +29,13 @@ func get_random_unit() -> Vector2:
 
 func escopeta():
 	for i in range(20):
-		var money: RigidBody2D = Money.instantiate()
-		add_child(money)
-		money.global_position = $BrazoExtendido/USD.global_position
-		money.rotation = 0
+		var m: RigidBody2D = Money.instantiate()
+		add_child(m)
+		m.global_position = $BrazoExtendido/USD.global_position
+		m.rotation = 0
 		var force = Vector2.UP * 700 + Vector2.RIGHT * 100
 		force += get_random_unit() * 2000
-		money.apply_central_impulse(force)
+		m.apply_central_impulse(force)
 		print(force)
 
 func preparar_escopeta():

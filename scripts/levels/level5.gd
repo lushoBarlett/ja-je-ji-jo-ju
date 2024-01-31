@@ -4,4 +4,3 @@ extends Node2D
 @onready var Spawn = %Spawn
 @onready var Jugadores = %Jugadores
 @onready var Jefe = %JuJu
-

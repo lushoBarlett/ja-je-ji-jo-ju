@@ -1,32 +1,20 @@
 extends AudioStreamPlayer
 
-var ult
-var HAY_RATA_MUERTA = false
+
 signal lupie
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+
+var rata_muerta = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-		
-
-func _on_rata_1_muerte(rata):
-	HAY_RATA_MUERTA = true
-	print('ded 1')
-
-func _on_rata_2_muerte(rata):
-	HAY_RATA_MUERTA = true
-	print('ded 2')
-	
+func _on_rata_1_muerte(_rata):
+	rata_muerta = true
 
 
+func _on_rata_2_muerte(_rata):
+	rata_muerta = true
 
 
 func _on_secuencia_1_lupie():
-	if HAY_RATA_MUERTA:
+	if rata_muerta:
 		play()
-
