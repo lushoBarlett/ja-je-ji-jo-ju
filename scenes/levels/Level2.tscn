@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://8v6y28f0yjd1" path="res://assets/rata.png" id="6_oc0fh"]
 [ext_resource type="AudioStream" uid="uid://b7af4wneigxb8" path="res://assets/secuencia1.wav" id="7_aqoqk"]
 [ext_resource type="Texture2D" uid="uid://dw4uafm0hogd1" path="res://assets/rata_blanca.png" id="7_d0cu1"]
-[ext_resource type="Script" path="res://scripts/control/secuencia1.gd" id="8_hfdkd"]
 [ext_resource type="AudioStream" uid="uid://posuykhehfra" path="res://assets/melo2AyB.wav" id="8_nfwrr"]
+[ext_resource type="Script" path="res://scripts/control/play_on_tempo.gd" id="9_dtm70"]
 [ext_resource type="Script" path="res://scripts/control/chords.gd" id="9_ipeox"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iibmt"]
@@ -3345,7 +3345,7 @@ skin = ExtResource("7_d0cu1")
 [node name="secuencia1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_aqoqk")
 autoplay = true
-script = ExtResource("8_hfdkd")
+script = ExtResource("9_dtm70")
 
 [node name="melo2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_nfwrr")
