@@ -12,7 +12,7 @@ func _ready():
 func _process(delta):
 	apuntar *= 1 + (EXPLOSIVENESS - 1) * delta
 	apply_force(apuntar * delta)
-	
+
 	# quite arbitrary if you ask me
 	if position.length() > 5000:
 		queue_free()

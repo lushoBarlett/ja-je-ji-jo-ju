@@ -10,7 +10,6 @@ const JUMP_VELOCITY = -900.0
 @export var player: int
 @export var skin: Texture2D
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.5
 var gases = []
 
@@ -24,7 +23,7 @@ func apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-func apply_movement(delta):
+func apply_movement():
 	var direction = Input.get_axis(p_action("left"), p_action("right"))
 	if direction:
 		velocity.x = direction * SPEED
@@ -82,7 +81,7 @@ func select_sprite_orientation():
 
 func _physics_process(delta):
 	apply_gravity(delta)
-	apply_movement(delta)
+	apply_movement()
 	jump_control()
 	tapar_control()
 	move_and_slide()
@@ -92,25 +91,24 @@ func _physics_process(delta):
 
 func is_gas(g):
 	return "GameFunction" in g and g.GameFunction == "Gas"
-	
+
 func is_enemy(e):
 	return "GameFunction" in e and e.GameFunction == "Enemy"
 
 func die():
-	
 	$sfx_dead.play()
 	$Sprite.flip_v = true
 	$CollisionShape2D.set_deferred("disabled", true)
 	muerte.emit(self)
 	await get_tree().create_timer(1).timeout
 	queue_free()
-	
+
 func _on_tocando(b):
 	if is_gas(b):
 		gases.append(b)
 	elif is_enemy(b):
 		die()
-	
+
 func _on_dejando(g):
 	if is_gas(g):
 		gases.erase(g)

@@ -51,7 +51,7 @@ autostart = true
 
 [node name="Boca" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -92)
+position = Vector2(0, -108)
 
 [node name="Caminata" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

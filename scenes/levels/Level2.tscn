@@ -3353,12 +3353,8 @@ script = ExtResource("9_ipeox")
 
 [node name="Progreso" parent="." instance=ExtResource("5_cb40b")]
 unique_name_in_owner = true
-VELOCIDAD = 2
-DISIPACION = 3
 metadata/_edit_lock_ = true
 
 [connection signal="muerte" from="Jugadores/Rata1" to="melo2" method="_on_rata_1_muerte"]
 [connection signal="muerte" from="Jugadores/Rata2" to="melo2" method="_on_rata_2_muerte"]
 [connection signal="lupie" from="secuencia1" to="melo2" method="_on_secuencia_1_lupie"]
-[connection signal="llenada" from="Progreso" to="." method="perdi"]
-[connection signal="vaciada" from="Progreso" to="." method="gane"]

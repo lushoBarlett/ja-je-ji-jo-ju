@@ -15,7 +15,7 @@ func asignar_gases():
 func conectar_eventos_gas(gas):
 	gas.gas.connect(Nivel.Progreso.gas)
 	gas.gas_cerrado.connect(gas_cerrado)
-	
+
 func gas_cerrado(gas):
 	gases.erase(gas)
 	asignar_gases()
@@ -25,26 +25,26 @@ func gas_cerrado(gas):
 func elegir_spawn():
 	var todos = Nivel.Spawn.get_children()
 	var spawn = todos.pick_random().global_position
-	
+
 	var max_tries = 100
 	var tries = 0
 	while spawns.find(spawn) > -1 and tries < max_tries:
 		spawn = todos.pick_random().global_position
 		tries += 1
-		
+
 	return spawn
 
 func spawnear_gases():
 	while gases.size() < 2 or gases.size() < ratas.size():
 		var gas = preload("res://scenes/prefabs/Gas.tscn").instantiate()
 		conectar_eventos_gas(gas)
-		
+
 		gas.global_position = elegir_spawn()
 		spawns.append(gas.global_position)
-		
+
 		Nivel.add_child(gas)
 		gases.append(gas)
-		
+
 	asignar_gases()
 
 func encontrar_ratas():
@@ -53,11 +53,11 @@ func encontrar_ratas():
 
 func asignar_ratas():
 	Nivel.Jefe.ratas = ratas
-	
+
 func conectar_muertes():
 	for rata in ratas:
 		rata.muerte.connect(mori)
-		
+
 func conectar_progreso():
 	Nivel.Progreso.VELOCIDAD = 2
 	Nivel.Progreso.DISIPACION = 4
@@ -93,14 +93,14 @@ func cargar_titulo():
 
 func cargar_nivel():
 	spawns = []; gases = []; ratas = []
-	
+
 	if Nivel:
 		remove_child(Nivel)
-	
+
 	Nivel = load("res://scenes/levels/Level" + str(NIVEL) + ".tscn").instantiate()
 	add_child(Nivel)
 	get_tree().paused = false
-	
+
 	encontrar_ratas()
 	asignar_ratas()
 	conectar_muertes()
@@ -110,12 +110,12 @@ func cargar_nivel():
 func gane():
 	get_tree().paused = true
 	var Screen: Control
-	
+
 	if NIVEL < 5:
 		Screen = preload("res://scenes/ui/GameNext.tscn").instantiate()
 		Screen.find_child("Siguiente").pressed.connect(cargar_nivel)
 		NIVEL += 1
 	else:
 		Screen = preload("res://scenes/ui/GameWon.tscn").instantiate()
-		
+
 	Nivel.add_child(Screen)

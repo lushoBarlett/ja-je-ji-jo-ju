@@ -39,7 +39,7 @@ func emit():
 		var rata = ratas[case % ratas.size()]
 		fuego.constant_force = fuego.global_position.direction_to(rata.global_position).normalized() * 500
 		fuego.constant_force += get_random_unit() * 400
-	
+
 	if randi() % 3 == 0:
 		var fuego: RigidBody2D = Fuego.instantiate()
 		add_child(fuego)
@@ -59,7 +59,7 @@ func _physics_process(delta):
 	else:
 		%BrazoIzq.rotation = 0
 		%BrazoDer.rotation = 0
-		
+
 	var ratio = current_ratio(delta)
 	_follow.set_progress_ratio(ratio)
 
