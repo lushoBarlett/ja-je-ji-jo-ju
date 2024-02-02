@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dgxp506qteavq" path="res://scenes/prefabs/Rata.tscn" id="5_18knr"]
 [ext_resource type="AudioStream" uid="uid://b7af4wneigxb8" path="res://assets/secuencia1.wav" id="6_22oge"]
 [ext_resource type="Texture2D" uid="uid://8v6y28f0yjd1" path="res://assets/rata.png" id="6_a8fve"]
-[ext_resource type="Script" path="res://scripts/control/secuencia1.gd" id="7_3c2m6"]
 [ext_resource type="Texture2D" uid="uid://dw4uafm0hogd1" path="res://assets/rata_blanca.png" id="7_daih1"]
 [ext_resource type="AudioStream" uid="uid://posuykhehfra" path="res://assets/melo2AyB.wav" id="8_cwoil"]
+[ext_resource type="Script" path="res://scripts/control/play_on_tempo.gd" id="9_gem4q"]
 [ext_resource type="Script" path="res://scripts/control/chords.gd" id="9_ya6e0"]
 [ext_resource type="PackedScene" uid="uid://dj1ncbvj7e77r" path="res://scenes/ui/Progreso.tscn" id="12_uck6b"]
 
@@ -3335,7 +3335,7 @@ skin = ExtResource("7_daih1")
 [node name="secuencia1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_22oge")
 autoplay = true
-script = ExtResource("7_3c2m6")
+script = ExtResource("9_gem4q")
 
 [node name="melo2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_cwoil")
