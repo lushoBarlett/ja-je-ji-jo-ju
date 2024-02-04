@@ -36,7 +36,7 @@ func _physics_process(delta):
 		if(direccion_patas.dot(direccion_rata) >= 0.99):
 			if(not colisione):
 				tiros +=1
-				if(tiros <= 3):
+				if(tiros <= 3): #arbitrario, lo haria basado en la cant de players
 					disparar(rata.global_position)
 			else:
 				print('col pero no disparo') 
@@ -44,7 +44,6 @@ func _physics_process(delta):
 			colisione = true
 		else:
 			colisione = false
-		print(tiros)
 	
 
 
