@@ -3327,9 +3327,13 @@ position = Vector2(953, 489)
 [node name="Spawn8" type="Marker2D" parent="Spawn"]
 position = Vector2(957, 285)
 
-[node name="JoJo" parent="." instance=ExtResource("5_qgpu5")]
+[node name="JoJo" parent="." node_paths=PackedStringArray("Drums", "Chords", "Melody1", "Melody2") instance=ExtResource("5_qgpu5")]
 unique_name_in_owner = true
 position = Vector2(963, 292)
+Drums = NodePath("../DRUMS")
+Chords = NodePath("../CHORDS")
+Melody1 = NodePath("../MELO1")
+Melody2 = NodePath("../MELO2")
 
 [node name="Jugadores" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -3337,13 +3341,14 @@ unique_name_in_owner = true
 [node name="Rata1" parent="Jugadores" instance=ExtResource("6_yongn")]
 z_index = 1
 position = Vector2(538, 1011)
+collision_layer = 5
 player = 1
 skin = ExtResource("7_h5dpr")
 
 [node name="Rata2" parent="Jugadores" instance=ExtResource("6_yongn")]
 z_index = 1
 position = Vector2(1367, 1014)
-collision_layer = 2
+collision_layer = 6
 collision_mask = 2
 player = 2
 skin = ExtResource("7_6lusv")

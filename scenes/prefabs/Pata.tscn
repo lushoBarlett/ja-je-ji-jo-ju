@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bokqelxee27fd"]
+
+[ext_resource type="Script" path="res://scripts/objects/pata.gd" id="1_gvn5w"]
+[ext_resource type="Texture2D" uid="uid://cv1vw4nksanxn" path="res://assets/pata.png" id="2_c7qe6"]
+[ext_resource type="AudioStream" uid="uid://q3via1fu1yn3" path="res://assets/sfx-ja1.wav" id="3_nuljn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yylg6"]
+radius = 22.3909
+height = 101.073
+
+[node name="Pata" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_gvn5w")
+
+[node name="Pata" type="Sprite2D" parent="."]
+position = Vector2(-0.499997, -3.75)
+scale = Vector2(0.788793, 0.720884)
+texture = ExtResource("2_c7qe6")
+offset = Vector2(0, 55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-29, 42)
+rotation = 0.47822
+shape = SubResource("CapsuleShape2D_yylg6")
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nuljn")
