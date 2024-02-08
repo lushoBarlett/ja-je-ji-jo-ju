@@ -10,7 +10,6 @@ bg_color = Color(0.384906, 0.683577, 0.370447, 1)
 
 [node name="Progreso" type="Node2D"]
 script = ExtResource("1_075t5")
-VELOCIDAD = 4
 
 [node name="Barra" type="ProgressBar" parent="."]
 unique_name_in_owner = true
