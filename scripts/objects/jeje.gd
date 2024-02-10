@@ -7,13 +7,13 @@ extends CharacterBody2D
 
 var ratas = []
 var SPEED := 15000
-var SIGNO := 1
+var SIGNO := 0
 var was_on_floor := false
 var GameFunction := 'Enemy'
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2 
 
 func _ready():
-	signo_random()
+	teleport('ground')
 	
 func _physics_process(delta):
 	if is_on_floor():
