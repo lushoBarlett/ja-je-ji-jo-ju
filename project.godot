@@ -69,4 +69,5 @@ p2jump={
 
 [physics]
 
+2d/physics_engine="GodotPhysics2D"
 2d/default_linear_damp=0.0

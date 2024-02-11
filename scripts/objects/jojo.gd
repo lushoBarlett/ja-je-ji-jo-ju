@@ -7,19 +7,45 @@ extends RigidBody2D
 @export var Melody1: AudioStreamPlayer
 @export var Melody2: AudioStreamPlayer
 
+@onready var Pata = preload("res://scenes/prefabs/Pata.tscn")
+
 var GameFunction = "Enemy"
 
 var ratas = []
-
-var veces = 0
-
+var rata
+var tiros := 0
+var veces := 0
+var colisione := false
+var direccion_patas : Vector2
+var direccion_rata : Vector2
 var velocity: Vector2 = Vector2(-SPEED,-SPEED)
 
 func _ready():
+	linear_velocity=velocity
 	$CuerpoBoca.visible = false
 
+
 func _process(_delta):
-	linear_velocity = velocity
+	pass
+	
+func _physics_process(delta):
+	if $AnimationPlayer.is_playing():
+		rata = ratas.pick_random()
+		direccion_patas = Vector2(0,1).rotated($Patas.rotation).normalized()
+		direccion_rata = $Patas.global_position.direction_to(rata.global_position).normalized()
+		if(direccion_patas.dot(direccion_rata) >= 0.99):
+			if(not colisione):
+				tiros +=1
+				if(tiros <= 3): #arbitrario, lo haria basado en la cant de players
+					disparar(rata.global_position)
+			else:
+				print('col pero no disparo') 
+				#La idea es que no salgan dos disparos ultra pegados
+			colisione = true
+		else:
+			colisione = false
+	
+
 
 func _on_body_entered(body):
 	if(body.name == 'borde_sup'):
@@ -33,15 +59,21 @@ func _on_body_entered(body):
 
 	elif(body.name == 'borde_der'):
 		velocity[0] = -SPEED
-
+	linear_velocity=velocity
+	
 func acelerar():
-	SPEED += 20
-
 	$AnimationPlayer.play('mover_las_patas')
-
+	$TimerFinAnimacion.start()
+	SPEED += 20
 	$sfx_jojojo.play()
-
 	veces += 1
+
+func disparar(dir):
+	var pata: RigidBody2D = Pata.instantiate()
+	pata.global_position = $Patas.get_global_position()
+	pata.apuntar = pata.position.direction_to(dir).normalized() * 300
+	pata.rotation = $Patas.rotation
+	get_tree().get_root().add_child(pata)
 
 func _on_drums_lupie():
 
@@ -52,10 +84,8 @@ func _on_drums_lupie():
 	if veces >= 5 and not Melody2.playing:
 		Melody2.play()
 
-	# Luciano: qué es esto?
-	if veces == 1:
-		Chords.play()
-	if veces == 2:
-		Melody1.play()
-	if veces == 3:
-		Melody2.play()
+
+
+func _on_timer_fin_animacion_timeout():
+	tiros = 0
+
