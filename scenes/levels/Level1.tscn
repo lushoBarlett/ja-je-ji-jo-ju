@@ -3334,13 +3334,13 @@ unique_name_in_owner = true
 
 [node name="Rata1" parent="Jugadores" instance=ExtResource("2_sjj3d")]
 z_index = 1
-position = Vector2(792, 758)
+position = Vector2(79, 503)
 player = 1
 skin = ExtResource("6_6wxrj")
 
 [node name="Rata2" parent="Jugadores" instance=ExtResource("2_sjj3d")]
 z_index = 1
-position = Vector2(1134, 760)
+position = Vector2(985, 1009)
 collision_layer = 2
 collision_mask = 2
 player = 2
