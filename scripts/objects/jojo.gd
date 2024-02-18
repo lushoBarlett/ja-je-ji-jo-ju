@@ -11,11 +11,11 @@ extends RigidBody2D
 
 var GameFunction = "Enemy"
 
-var ratas = []
+var ratas := []
 var rata
 var tiros := 0
 var veces := 0
-var colisione := false
+var time_since_shot := 0.0
 var direccion_patas : Vector2
 var direccion_rata : Vector2
 var velocity: Vector2 = Vector2(-SPEED,-SPEED)
@@ -34,17 +34,12 @@ func _physics_process(delta):
 		direccion_patas = Vector2(0,1).rotated($Patas.rotation).normalized()
 		direccion_rata = $Patas.global_position.direction_to(rata.global_position).normalized()
 		if(direccion_patas.dot(direccion_rata) >= 0.99):
-			if(not colisione):
+			if(time_since_shot > 0.1 and tiros <= (ratas.size() + 1)): 
 				tiros +=1
-				if(tiros <= 3): #arbitrario, lo haria basado en la cant de players
-					disparar(rata.global_position)
-			else:
-				print('col pero no disparo') 
-				#La idea es que no salgan dos disparos ultra pegados
-			colisione = true
-		else:
-			colisione = false
-	
+				disparar(rata.global_position)
+				time_since_shot = 0.0
+		time_since_shot += delta
+
 
 
 func _on_body_entered(body):
