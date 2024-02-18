@@ -1,38 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://s0fhny31o8ob"]
+[gd_scene load_steps=4 format=3 uid="uid://s0fhny31o8ob"]
 
 [ext_resource type="Texture2D" uid="uid://65g4smmecung" path="res://assets/menu-carga.png" id="1_4l63k"]
+[ext_resource type="Script" path="res://scripts/levels/Title.gd" id="1_tcr5g"]
 [ext_resource type="AudioStream" uid="uid://dp6eyhj63xeoe" path="res://assets/jajejijoju.wav" id="2_4640q"]
 
-[node name="GameNext" type="Control"]
+[node name="Title" type="Control"]
 process_mode = 3
 z_index = 5
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_tcr5g")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("1_4l63k")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="2Players" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1226.0
-offset_top = 830.0
-offset_right = 1266.0
-offset_bottom = 870.0
-scale = Vector2(12.5211, 3.84)
-color = Color(1, 0.8, 0, 1)
-
-[node name="Comenzar" type="Button" parent="."]
-modulate = Color(0, 0.101961, 0.894118, 1)
-layout_mode = 0
-offset_left = 1224.0
-offset_top = 827.0
-offset_right = 1724.0
+offset_left = 1173.0
+offset_top = 823.0
+offset_right = 1484.0
 offset_bottom = 983.0
-theme_override_font_sizes/font_size = 40
-text = "Comenzar"
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(0.996078, 0.882353, 0, 1)
+theme_override_constants/outline_size = 33
+theme_override_font_sizes/font_size = 55
+text = "2
+Players"
+flat = true
+
+[node name="3Players" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1515.0
+offset_top = 827.0
+offset_right = 1822.0
+offset_bottom = 987.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(0.996078, 0.882353, 0, 1)
+theme_override_constants/outline_size = 33
+theme_override_font_sizes/font_size = 55
+text = "3
+Players"
 flat = true
 
 [node name="Label" type="Label" parent="."]
@@ -51,3 +61,32 @@ vertical_alignment = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_4640q")
 autoplay = true
+
+[node name="ComenzarButton" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="ComenzarButton"]
+layout_mode = 0
+offset_left = 1226.0
+offset_top = 830.0
+offset_right = 1266.0
+offset_bottom = 870.0
+scale = Vector2(12.5211, 3.84)
+color = Color(1, 0.8, 0, 1)
+
+[node name="Comenzar" type="Button" parent="ComenzarButton"]
+modulate = Color(0, 0.101961, 0.894118, 1)
+layout_mode = 0
+offset_left = 1224.0
+offset_top = 827.0
+offset_right = 1724.0
+offset_bottom = 983.0
+theme_override_font_sizes/font_size = 40
+text = "Comenzar"
+flat = true
+
+[connection signal="pressed" from="2Players" to="." method="_on_2players_pressed"]
+[connection signal="pressed" from="3Players" to="." method="_on_3players_pressed"]
+[connection signal="pressed" from="ComenzarButton/Comenzar" to="." method="_on_comenzar_pressed"]
