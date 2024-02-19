@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://s0fhny31o8ob"]
+[gd_scene load_steps=6 format=3 uid="uid://s0fhny31o8ob"]
 
 [ext_resource type="Texture2D" uid="uid://65g4smmecung" path="res://assets/menu-carga.png" id="1_4l63k"]
 [ext_resource type="Script" path="res://scripts/levels/Title.gd" id="1_tcr5g"]
 [ext_resource type="AudioStream" uid="uid://dp6eyhj63xeoe" path="res://assets/jajejijoju.wav" id="2_4640q"]
+[ext_resource type="FontFile" uid="uid://bo4jvkg5ljdw2" path="res://assets/Inter-Bold.ttf" id="3_qud7w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6wh1j"]
+font = ExtResource("3_qud7w")
+font_size = 57
+font_color = Color(1, 0.803922, 0, 1)
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Title" type="Control"]
 process_mode = 3
@@ -47,17 +55,14 @@ flat = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1235.0
-offset_top = 549.0
-offset_right = 1758.0
-offset_bottom = 804.0
-theme_override_colors/font_color = Color(1, 1, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 60
+offset_left = 1249.0
+offset_top = 554.0
+offset_right = 1775.0
+offset_bottom = 809.0
 text = "Jugador 1: WASD
 Jugador 2: ↑←↓→
 Jugador 3: IJKL"
+label_settings = SubResource("LabelSettings_6wh1j")
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -79,14 +84,15 @@ scale = Vector2(12.5211, 3.84)
 color = Color(1, 0.8, 0, 1)
 
 [node name="Comenzar" type="Button" parent="ComenzarButton"]
-modulate = Color(0, 0.101961, 0.894118, 1)
 layout_mode = 0
 offset_left = 1224.0
 offset_top = 827.0
 offset_right = 1724.0
 offset_bottom = 983.0
-theme_override_font_sizes/font_size = 40
-text = "Comenzar"
+theme_override_colors/font_color = Color(0.2, 0.164706, 0.47451, 1)
+theme_override_fonts/font = ExtResource("3_qud7w")
+theme_override_font_sizes/font_size = 68
+text = "START"
 flat = true
 
 [connection signal="pressed" from="2Players" to="." method="_on_2players_pressed"]

@@ -3341,7 +3341,6 @@ skin = ExtResource("6_6wxrj")
 [node name="Rata2" parent="Jugadores" instance=ExtResource("2_sjj3d")]
 z_index = 1
 position = Vector2(985, 1009)
-collision_layer = 2
 collision_mask = 2
 player = 2
 skin = ExtResource("7_hauvd")
