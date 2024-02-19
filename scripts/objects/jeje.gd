@@ -1,75 +1,56 @@
-extends Node2D
+extends CharacterBody2D
 
-@onready var _follow: PathFollow2D = get_parent()
 @onready var Fuego = preload("res://scenes/prefabs/Fuego.tscn")
 
-var ratas = []
+@export var Spawn : Node2D
 
-var time = 0
+
+var ratas = []
+var SPEED := 15000
+var SIGNO := 0
+var was_on_floor := false
+var GameFunction := 'Enemy'
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 2 
 
 func _ready():
-	%Caminata.play("idle")
-
-func current_ratio(delta):
-	time += delta
-	return (1 + sin(0.5 * time)) / 2
-
-var case: int
-
-func get_random_unit() -> Vector2:
-	var x1 = randf_range(-1, 1)
-	var x2 = randf_range(-1, 1)
-
-	while x1*x1 + x2*x2 >= 1:
-		x1 = randf_range (-1, 1)
-		x2 = randf_range (-1, 1)
-
-	var pos = Vector2(
-	2 * x1 * sqrt(1 - x1*x1 - x2*x2),
-	2 * x2 * sqrt(1 - x1*x1 - x2*x2))
-
-	return pos * randf_range(0, 1)
-
-func emit():
-	if randi() % 3 == 0:
-		var fuego: RigidBody2D = Fuego.instantiate()
-		add_child(fuego)
-		fuego.global_position = %BrazoIzq/Boca.global_position
-		fuego.gravity_scale = 0
-		var rata = ratas[case % ratas.size()]
-		fuego.constant_force = fuego.global_position.direction_to(rata.global_position).normalized() * 500
-		fuego.constant_force += get_random_unit() * 400
-
-	if randi() % 3 == 0:
-		var fuego: RigidBody2D = Fuego.instantiate()
-		add_child(fuego)
-		fuego.global_position = %BrazoDer/Boca.global_position
-		fuego.gravity_scale = 0
-		var rata = ratas[(1 - case) % ratas.size()]
-		fuego.constant_force = fuego.global_position.direction_to(rata.global_position).normalized() * 500
-		fuego.constant_force += get_random_unit() * 400
-
+	teleport('ground')
+	
 func _physics_process(delta):
-	if %Caminata.current_animation == "crazy":
-		%BrazoIzq.look_at(ratas[     case  % ratas.size()].global_position)
-		%BrazoDer.look_at(ratas[(1 - case) % ratas.size()].global_position)
-		%BrazoIzq.rotation += 2.5 * PI / 2
-		%BrazoDer.rotation -= PI / 6
-		emit()
+	if is_on_floor():
+		velocity.x = SIGNO * SPEED * delta
 	else:
-		%BrazoIzq.rotation = 0
-		%BrazoDer.rotation = 0
+		velocity.y += gravity * delta
+		if SIGNO != 0: #Para que no asigne mientras esta en la animación de salida
+			signo_random()
+	move_and_slide()
+	if (is_on_wall()):
+		SIGNO *= -1
+	
+	was_on_floor = is_on_floor()
 
-	var ratio = current_ratio(delta)
-	_follow.set_progress_ratio(ratio)
+func on_timer():
+	while (not is_on_floor() and not was_on_floor):#Para que no tire tp cayendo,
+		await get_tree().create_timer(0.5).timeout #queda horrible visualmente
+	SIGNO = 0
+	$Player.play('ground')
+	
+func teleport(anim):
+	if(anim == 'ground'):
+		global_position = Spawn.get_children().pick_random().global_position
+		$Player.play('aparecer')
+		
+	elif(anim == 'aparecer'):
+		signo_random() #No se mueve en x hasta terminar la animacion
 
-func disparar():
-	if %Caminata.current_animation == "idle":
-		%Caminata.play("crazy")
-		%Caminata.speed_scale = 2
-		%Timer.start()
-		case = randi() % 2
-	else:
-		%Caminata.play("idle")
-		%Caminata.speed_scale = 1
-		%Timer.start()
+func interactuar(r):
+	if r in ratas:
+		r.die()
+
+func _on_progreso(): #Progreso positivo para las ratas, cuando baja la barra
+	SPEED += 1000
+
+func signo_random():
+		if randi() % 2:
+			SIGNO = 1
+		else :
+			SIGNO = -1
