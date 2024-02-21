@@ -5,77 +5,13 @@ extends Node2D
 @onready var Jugadores = %Jugadores
 @onready var Jefe = %JaJa
 @export var player_count : int
+@export var skins = []
 
 func _ready():
-	if (player_count >= 3) :
-		var skin3 = preload("res://assets/rata.png")
-		var rata3 = preload("res://scenes/prefabs/Rata.tscn").instantiate()
-		rata3.position = Vector2(1830,500)
-		rata3.player = 3
-		rata3.skin = skin3
-		Jugadores.add_child(rata3)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
+	for i in range(player_count):
+		var rata = preload("res://scenes/prefabs/Rata.tscn").instantiate()
+		rata.name = 'Rata' + str(i+1)
+		rata.skin = skins[i]
+		rata.position = Vector2(1830,500)
+		rata.player = i+1
+		Jugadores.add_child(rata)

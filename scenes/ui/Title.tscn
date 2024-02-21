@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://s0fhny31o8ob"]
+[gd_scene load_steps=8 format=3 uid="uid://s0fhny31o8ob"]
 
 [ext_resource type="Texture2D" uid="uid://65g4smmecung" path="res://assets/menu-carga.png" id="1_4l63k"]
 [ext_resource type="Script" path="res://scripts/levels/Title.gd" id="1_tcr5g"]
 [ext_resource type="AudioStream" uid="uid://dp6eyhj63xeoe" path="res://assets/jajejijoju.wav" id="2_4640q"]
+[ext_resource type="Script" path="res://scripts/control/player_select.gd" id="2_ql7io"]
 [ext_resource type="FontFile" uid="uid://bo4jvkg5ljdw2" path="res://assets/Inter-Bold.ttf" id="3_qud7w"]
+[ext_resource type="Texture2D" uid="uid://8v6y28f0yjd1" path="res://assets/rata.png" id="4_43w4n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6wh1j"]
 font = ExtResource("3_qud7w")
@@ -19,13 +21,59 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_tcr5g")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="PlayerSelect" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1081.0
+script = ExtResource("2_ql7io")
+
+[node name="TextureRect" type="TextureRect" parent="PlayerSelect"]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_4l63k")
 
-[node name="2Players" type="Button" parent="."]
+[node name="Player1" type="Sprite2D" parent="PlayerSelect"]
+unique_name_in_owner = true
+position = Vector2(418, 300)
+scale = Vector2(2, 2)
+texture = ExtResource("4_43w4n")
+hframes = 2
+vframes = 2
+
+[node name="Player2" type="Sprite2D" parent="PlayerSelect"]
+unique_name_in_owner = true
+position = Vector2(1547, 272)
+scale = Vector2(2, 2)
+texture = ExtResource("4_43w4n")
+hframes = 2
+vframes = 2
+
+[node name="Start" type="Button" parent="PlayerSelect"]
+offset_left = 699.0
+offset_top = 446.0
+offset_right = 1199.0
+offset_bottom = 602.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qud7w")
+theme_override_font_sizes/font_size = 68
+text = "START"
+flat = true
+
+[node name="Main" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1081.0
+
+[node name="TextureRect" type="TextureRect" parent="Main"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_4l63k")
+
+[node name="2Players" type="Button" parent="Main"]
 layout_mode = 0
 offset_left = 1173.0
 offset_top = 823.0
@@ -39,7 +87,7 @@ text = "2
 Players"
 flat = true
 
-[node name="3Players" type="Button" parent="."]
+[node name="3Players" type="Button" parent="Main"]
 layout_mode = 0
 offset_left = 1515.0
 offset_top = 827.0
@@ -53,7 +101,7 @@ text = "3
 Players"
 flat = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="Main"]
 layout_mode = 0
 offset_left = 1249.0
 offset_top = 554.0
@@ -65,16 +113,17 @@ Jugador 3: IJKL"
 label_settings = SubResource("LabelSettings_6wh1j")
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Main"]
 stream = ExtResource("2_4640q")
 autoplay = true
 
-[node name="ComenzarButton" type="Control" parent="."]
+[node name="ComenzarButton" type="Control" parent="Main"]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="ComenzarButton"]
+[node name="ColorRect" type="ColorRect" parent="Main/ComenzarButton"]
 layout_mode = 0
 offset_left = 1226.0
 offset_top = 830.0
@@ -83,7 +132,7 @@ offset_bottom = 870.0
 scale = Vector2(12.5211, 3.84)
 color = Color(1, 0.8, 0, 1)
 
-[node name="Comenzar" type="Button" parent="ComenzarButton"]
+[node name="Comenzar" type="Button" parent="Main/ComenzarButton"]
 layout_mode = 0
 offset_left = 1224.0
 offset_top = 827.0
@@ -95,6 +144,7 @@ theme_override_font_sizes/font_size = 68
 text = "START"
 flat = true
 
-[connection signal="pressed" from="2Players" to="." method="_on_2players_pressed"]
-[connection signal="pressed" from="3Players" to="." method="_on_3players_pressed"]
-[connection signal="pressed" from="ComenzarButton/Comenzar" to="." method="_on_comenzar_pressed"]
+[connection signal="pressed" from="PlayerSelect/Start" to="PlayerSelect" method="_on_start_pressed"]
+[connection signal="pressed" from="Main/2Players" to="." method="_on_2players_pressed"]
+[connection signal="pressed" from="Main/3Players" to="." method="_on_3players_pressed"]
+[connection signal="pressed" from="Main/ComenzarButton/Comenzar" to="." method="_on_comenzar_pressed"]

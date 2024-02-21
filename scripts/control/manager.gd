@@ -3,6 +3,7 @@ extends Node2D
 var spawns = []
 var gases = []
 var ratas = []
+var skins = []
 var player_count : int
 var Nivel: Node2D
 
@@ -54,6 +55,9 @@ func encontrar_ratas():
 func asignar_ratas():
 	Nivel.Jefe.ratas = ratas
 
+func asignar_skins():
+	Nivel.skins = skins
+
 func conectar_muertes():
 	for rata in ratas:
 		rata.muerte.connect(mori)
@@ -86,13 +90,14 @@ func perdi():
 
 func cargar_titulo():
 	var Title = preload("res://scenes/ui/Title.tscn").instantiate()
-	Title.connect('start',set_player_count)
+	Title.get_node('PlayerSelect').connect('start',set_players)
 	Nivel = Node2D.new()
 	add_child(Nivel) # hack
 	Nivel.add_child(Title)
 	
-func set_player_count(c):
+func set_players(c, s):
 	player_count = c
+	skins = s
 	cargar_nivel()
 
 func cargar_nivel():
@@ -103,6 +108,7 @@ func cargar_nivel():
 
 	Nivel = load("res://scenes/levels/Level" + str(NIVEL) + ".tscn").instantiate()
 	Nivel.player_count = player_count
+	asignar_skins()
 	add_child(Nivel)
 	get_tree().paused = false
 
