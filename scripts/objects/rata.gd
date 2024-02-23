@@ -9,9 +9,13 @@ const JUMP_VELOCITY = -900.0
 
 @export var player: int
 @export var skin: Texture2D
+var died := false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.5
 var gases = []
+var coyote_time := 0.0
+var was_on_floor := true
+
 
 func _ready():
 	%Sprite.texture = skin
@@ -21,7 +25,12 @@ func p_action(action: String):
 
 func apply_gravity(delta):
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		if was_on_floor:
+			coyote_time = 0.0
+		else:
+			velocity.y += gravity * delta
+		coyote_time += delta
+	was_on_floor = is_on_floor()
 
 func apply_movement():
 	var direction = Input.get_axis(p_action("left"), p_action("right"))
@@ -34,7 +43,7 @@ func start_jump():
 	velocity.y = JUMP_VELOCITY
 
 func jump_control():
-	if Input.is_action_just_pressed(p_action("jump")) and is_on_floor():
+	if Input.is_action_just_pressed(p_action("jump")) and (is_on_floor() or coyote_time < 0.1):
 		start_jump()
 	elif Input.is_action_pressed(p_action("jump")):
 		pass # keeps jumping
@@ -96,12 +105,14 @@ func is_enemy(e):
 	return "GameFunction" in e and e.GameFunction == "Enemy"
 
 func die():
-	$sfx_dead.play()
-	$Sprite.flip_v = true
-	$CollisionShape2D.set_deferred("disabled", true)
-	muerte.emit(self)
-	await get_tree().create_timer(1).timeout
-	queue_free()
+	if not died: #Previene que suene 2 veces el sfx por el timer.
+		died = true
+		$sfx_dead.play()
+		$Sprite.flip_v = true
+		$CollisionShape2D.set_deferred("disabled", true)
+		muerte.emit(self)
+		await get_tree().create_timer(1).timeout
+		queue_free()
 
 func _on_tocando(b):
 	if is_gas(b):
