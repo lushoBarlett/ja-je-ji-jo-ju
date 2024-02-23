@@ -50,6 +50,7 @@ hframes = 2
 vframes = 2
 
 [node name="Start" type="Button" parent="PlayerSelect"]
+layout_mode = 0
 offset_left = 699.0
 offset_top = 446.0
 offset_right = 1199.0
