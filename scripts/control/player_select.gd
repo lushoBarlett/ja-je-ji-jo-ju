@@ -2,7 +2,8 @@ extends Control
 
 var skin1 = preload("res://assets/rata.png")
 var skin2 = preload("res://assets/rata_blanca.png")
-var skins = [skin1,skin2]
+var skin3 = preload("res://assets/rata_test.png")
+var skins = [skin1,skin2,skin3]
 var skinIndex = [0,0,0,0]
 var player_count := 2
 signal start(players_count, skins)
