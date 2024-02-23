@@ -1,14 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cnyoq17jgulgr"]
+[gd_scene load_steps=12 format=3 uid="uid://cnyoq17jgulgr"]
 
 [ext_resource type="Script" path="res://scripts/levels/level2.gd" id="1_qmai3"]
 [ext_resource type="PackedScene" uid="uid://bu2ms5lskq08r" path="res://scenes/ui/Fondo.tscn" id="2_q6syb"]
 [ext_resource type="Texture2D" uid="uid://bqbs1i3bg20f4" path="res://assets/tilemap.png" id="3_0kj2m"]
 [ext_resource type="PackedScene" uid="uid://ctid5w1x0axkp" path="res://scenes/prefabs/JeJe.tscn" id="4_yp7it"]
 [ext_resource type="PackedScene" uid="uid://dj1ncbvj7e77r" path="res://scenes/ui/Progreso.tscn" id="5_cb40b"]
-[ext_resource type="PackedScene" uid="uid://dgxp506qteavq" path="res://scenes/prefabs/Rata.tscn" id="6_mut3w"]
-[ext_resource type="Texture2D" uid="uid://8v6y28f0yjd1" path="res://assets/rata.png" id="6_oc0fh"]
 [ext_resource type="AudioStream" uid="uid://b7af4wneigxb8" path="res://assets/secuencia1.wav" id="7_aqoqk"]
-[ext_resource type="Texture2D" uid="uid://dw4uafm0hogd1" path="res://assets/rata_blanca.png" id="7_d0cu1"]
 [ext_resource type="AudioStream" uid="uid://posuykhehfra" path="res://assets/melo2AyB.wav" id="8_nfwrr"]
 [ext_resource type="Script" path="res://scripts/control/play_on_tempo.gd" id="9_dtm70"]
 [ext_resource type="Script" path="res://scripts/control/chords.gd" id="9_ipeox"]
@@ -3289,6 +3286,7 @@ layer_0/tile_data = PackedInt32Array(4259841, 131074, 0, 4259842, 131074, 0, 425
 
 [node name="Spawn" type="Node2D" parent="."]
 unique_name_in_owner = true
+visible = false
 
 [node name="Spawn1" type="Marker2D" parent="Spawn"]
 position = Vector2(941, 1013)
@@ -3313,6 +3311,24 @@ position = Vector2(286, 468)
 
 [node name="Spawn6" type="Marker2D" parent="Spawn"]
 position = Vector2(352, 159)
+
+[node name="SpawnRatas" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Spawn1" type="Marker2D" parent="SpawnRatas"]
+position = Vector2(102, 806)
+
+[node name="Spawn2" type="Marker2D" parent="SpawnRatas"]
+position = Vector2(1844, 784)
+
+[node name="Spawn3" type="Marker2D" parent="SpawnRatas"]
+position = Vector2(656, 744)
+
+[node name="Spawn4" type="Marker2D" parent="SpawnRatas"]
+position = Vector2(1278, 747)
+
+[node name="Spawn5" type="Marker2D" parent="SpawnRatas"]
+position = Vector2(950, 1004)
 
 [node name="Spawn_tp" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -3339,19 +3355,6 @@ position = Vector2(958, 436)
 [node name="Jugadores" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Rata1" parent="Jugadores" instance=ExtResource("6_mut3w")]
-z_index = 1
-position = Vector2(93, 303)
-player = 1
-skin = ExtResource("6_oc0fh")
-
-[node name="Rata2" parent="Jugadores" instance=ExtResource("6_mut3w")]
-z_index = 1
-position = Vector2(1814, 308)
-collision_mask = 2
-player = 2
-skin = ExtResource("7_d0cu1")
-
 [node name="secuencia1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_aqoqk")
 autoplay = true
@@ -3370,6 +3373,4 @@ unique_name_in_owner = true
 position = Vector2(949, 509)
 Spawn = NodePath("../Spawn_tp")
 
-[connection signal="muerte" from="Jugadores/Rata1" to="melo2" method="_on_rata_1_muerte"]
-[connection signal="muerte" from="Jugadores/Rata2" to="melo2" method="_on_rata_2_muerte"]
 [connection signal="lupie" from="secuencia1" to="melo2" method="_on_secuencia_1_lupie"]
