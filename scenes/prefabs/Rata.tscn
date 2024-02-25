@@ -1,24 +1,24 @@
 [gd_scene load_steps=17 format=3 uid="uid://dgxp506qteavq"]
 
 [ext_resource type="Script" path="res://scripts/objects/rata.gd" id="1_65w7b"]
-[ext_resource type="Texture2D" uid="uid://8v6y28f0yjd1" path="res://assets/rata.png" id="2_id7o7"]
-[ext_resource type="Texture2D" uid="uid://dw4uafm0hogd1" path="res://assets/rata_blanca.png" id="2_q7oby"]
+[ext_resource type="Texture2D" uid="uid://dw4uafm0hogd1" path="res://assets/skins/rata_blanca.png" id="2_y5mqg"]
+[ext_resource type="Texture2D" uid="uid://8v6y28f0yjd1" path="res://assets/skins/rata.png" id="3_7oif4"]
 [ext_resource type="AudioStream" uid="uid://bh5ncd7jc5qlo" path="res://assets/ratded-v2.wav" id="3_080aw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmyte"]
-atlas = ExtResource("2_id7o7")
+atlas = ExtResource("3_7oif4")
 region = Rect2(0, 0, 240, 180)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_li0yj"]
-atlas = ExtResource("2_id7o7")
+atlas = ExtResource("3_7oif4")
 region = Rect2(0, 180, 240, 180)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkl2r"]
-atlas = ExtResource("2_id7o7")
+atlas = ExtResource("3_7oif4")
 region = Rect2(240, 180, 240, 180)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lqhku"]
-atlas = ExtResource("2_id7o7")
+atlas = ExtResource("3_7oif4")
 region = Rect2(240, 0, 240, 180)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8eyrb"]
@@ -143,7 +143,7 @@ script = ExtResource("1_65w7b")
 unique_name_in_owner = true
 position = Vector2(0, -16)
 scale = Vector2(0.533, 0.533)
-texture = ExtResource("2_q7oby")
+texture = ExtResource("2_y5mqg")
 hframes = 2
 vframes = 2
 
