@@ -3,7 +3,8 @@ extends Node2D
 var spawns = []
 var gases = []
 var ratas = []
-var player_count : int
+var skins = []
+var players : Array
 var Nivel: Node2D
 
 func is_gas(child):
@@ -86,13 +87,13 @@ func perdi():
 
 func cargar_titulo():
 	var Title = preload("res://scenes/ui/Title.tscn").instantiate()
-	Title.connect('start',set_player_count)
+	Title.get_node('PlayerSelect').connect('start',set_players)
 	Nivel = Node2D.new()
 	add_child(Nivel) # hack
 	Nivel.add_child(Title)
 	
-func set_player_count(c):
-	player_count = c
+func set_players(p):
+	players = p
 	cargar_nivel()
 
 func cargar_nivel():
@@ -102,7 +103,7 @@ func cargar_nivel():
 		remove_child(Nivel)
 
 	Nivel = load("res://scenes/levels/Level" + str(NIVEL) + ".tscn").instantiate()
-	Nivel.player_count = player_count
+	Nivel.players = players
 	add_child(Nivel)
 	get_tree().paused = false
 

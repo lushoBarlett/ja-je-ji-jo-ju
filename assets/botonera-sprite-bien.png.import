@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw4uafm0hogd1"
-path="res://.godot/imported/rata_blanca.png-ac9f7146c5649789cba2a90f4a2147b3.ctex"
+uid="uid://bay28677wce71"
+path="res://.godot/imported/botonera-sprite-bien.png-266c00a1524ab09ec2b7a5528416db68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rata_blanca.png"
-dest_files=["res://.godot/imported/rata_blanca.png-ac9f7146c5649789cba2a90f4a2147b3.ctex"]
+source_file="res://assets/botonera-sprite-bien.png"
+dest_files=["res://.godot/imported/botonera-sprite-bien.png-266c00a1524ab09ec2b7a5528416db68.ctex"]
 
 [params]
 

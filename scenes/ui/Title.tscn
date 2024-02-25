@@ -1,9 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://s0fhny31o8ob"]
+[gd_scene load_steps=11 format=3 uid="uid://s0fhny31o8ob"]
 
 [ext_resource type="Texture2D" uid="uid://65g4smmecung" path="res://assets/menu-carga.png" id="1_4l63k"]
 [ext_resource type="Script" path="res://scripts/levels/Title.gd" id="1_tcr5g"]
 [ext_resource type="AudioStream" uid="uid://dp6eyhj63xeoe" path="res://assets/jajejijoju.wav" id="2_4640q"]
+[ext_resource type="Script" path="res://scripts/control/player_select.gd" id="2_ql7io"]
 [ext_resource type="FontFile" uid="uid://bo4jvkg5ljdw2" path="res://assets/Inter-Bold.ttf" id="3_qud7w"]
+[ext_resource type="Texture2D" uid="uid://bivkrr41wvprj" path="res://assets/Mesa de trabajo 1.png" id="3_yelk8"]
+[ext_resource type="Texture2D" uid="uid://bay28677wce71" path="res://assets/botonera-sprite-bien.png" id="5_m1tj7"]
+
+[sub_resource type="Animation" id="Animation_7rjrg"]
+resource_name = "Button_hints"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Controls:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dts5i"]
+_data = {
+"Button_hints": SubResource("Animation_7rjrg")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_6wh1j"]
 font = ExtResource("3_qud7w")
@@ -19,41 +43,169 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_tcr5g")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="PlayerSelect" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1081.0
+script = ExtResource("2_ql7io")
+
+[node name="TextureRect" type="TextureRect" parent="PlayerSelect"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_yelk8")
+
+[node name="Start" type="Button" parent="PlayerSelect"]
+layout_mode = 0
+offset_left = 699.0
+offset_top = 446.0
+offset_right = 1199.0
+offset_bottom = 602.0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qud7w")
+theme_override_font_sizes/font_size = 68
+text = "START"
+flat = true
+
+[node name="SpawnRatas" type="Node2D" parent="PlayerSelect"]
+unique_name_in_owner = true
+
+[node name="Spawn1" type="Marker2D" parent="PlayerSelect/SpawnRatas"]
+position = Vector2(741, 290)
+
+[node name="Spawn2" type="Marker2D" parent="PlayerSelect/SpawnRatas"]
+position = Vector2(1665, 287)
+
+[node name="Spawn3" type="Marker2D" parent="PlayerSelect/SpawnRatas"]
+position = Vector2(407, 871)
+
+[node name="Spawn4" type="Marker2D" parent="PlayerSelect/SpawnRatas"]
+position = Vector2(1693, 884)
+
+[node name="ControlsP1" type="Control" parent="PlayerSelect"]
+anchors_preset = 0
+offset_right = 368.0
+offset_bottom = 301.0
+
+[node name="left" type="Sprite2D" parent="PlayerSelect/ControlsP1"]
+position = Vector2(139, 643)
+texture = ExtResource("5_m1tj7")
+hframes = 8
+vframes = 6
+
+[node name="press" type="Sprite2D" parent="PlayerSelect/ControlsP1"]
+position = Vector2(295, 691)
+texture = ExtResource("5_m1tj7")
+hframes = 8
+vframes = 6
+frame = 24
+
+[node name="jump" type="Sprite2D" parent="PlayerSelect/ControlsP1"]
+position = Vector2(293, 552)
+texture = ExtResource("5_m1tj7")
+hframes = 8
+vframes = 6
+frame = 16
+
+[node name="right" type="Sprite2D" parent="PlayerSelect/ControlsP1"]
+position = Vector2(448, 642)
+texture = ExtResource("5_m1tj7")
+hframes = 8
+vframes = 6
+frame = 8
+
+[node name="ControlsP2" type="Control" parent="PlayerSelect"]
+anchors_preset = 0
+offset_left = 507.0
+offset_top = 5.0
+offset_right = 707.0
+offset_bottom = 325.0
+
+[node name="left" type="Sprite2D" parent="PlayerSelect/ControlsP2"]
+position = Vector2(139, 643)
+texture = ExtResource("5_m1tj7")
+hframes = 8
+vframes = 6
+frame = 2
+
+[node name="press" type="Sprite2D" parent="PlayerSelect/ControlsP2"]
+position = Vector2(295, 691)
+texture = ExtResource("5_m1tj7")
+hframes = 8
+vframes = 6
+frame = 26
+
+[node name="jump" type="Sprite2D" parent="PlayerSelect/ControlsP2"]
+position = Vector2(293, 552)
+texture = ExtResource("5_m1tj7")
+hframes = 8
+vframes = 6
+frame = 18
+
+[node name="right" type="Sprite2D" parent="PlayerSelect/ControlsP2"]
+position = Vector2(448, 642)
+texture = ExtResource("5_m1tj7")
+hframes = 8
+vframes = 6
+frame = 10
+
+[node name="Controls" type="Control" parent="PlayerSelect"]
+visible = false
+anchors_preset = 0
+offset_right = 368.0
+offset_bottom = 301.0
+
+[node name="back" type="Sprite2D" parent="PlayerSelect/Controls"]
+position = Vector2(285, 691)
+texture = ExtResource("5_m1tj7")
+hframes = 8
+vframes = 6
+frame = 30
+
+[node name="accept" type="Sprite2D" parent="PlayerSelect/Controls"]
+position = Vector2(281, 551)
+texture = ExtResource("5_m1tj7")
+hframes = 8
+vframes = 6
+frame = 22
+
+[node name="back2" type="Sprite2D" parent="PlayerSelect/Controls"]
+position = Vector2(795, 696)
+texture = ExtResource("5_m1tj7")
+hframes = 8
+vframes = 6
+frame = 30
+
+[node name="accept2" type="Sprite2D" parent="PlayerSelect/Controls"]
+position = Vector2(791, 556)
+texture = ExtResource("5_m1tj7")
+hframes = 8
+vframes = 6
+frame = 22
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerSelect"]
+libraries = {
+"": SubResource("AnimationLibrary_dts5i")
+}
+
+[node name="Timer" type="Timer" parent="PlayerSelect"]
+wait_time = 4.0
+autostart = true
+
+[node name="Main" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1081.0
+
+[node name="TextureRect" type="TextureRect" parent="Main"]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_4l63k")
 
-[node name="2Players" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1173.0
-offset_top = 823.0
-offset_right = 1484.0
-offset_bottom = 983.0
-theme_override_colors/font_color = Color(0, 0, 1, 1)
-theme_override_colors/font_outline_color = Color(0.996078, 0.882353, 0, 1)
-theme_override_constants/outline_size = 33
-theme_override_font_sizes/font_size = 55
-text = "2
-Players"
-flat = true
-
-[node name="3Players" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1515.0
-offset_top = 827.0
-offset_right = 1822.0
-offset_bottom = 987.0
-theme_override_colors/font_color = Color(0, 0, 1, 1)
-theme_override_colors/font_outline_color = Color(0.996078, 0.882353, 0, 1)
-theme_override_constants/outline_size = 33
-theme_override_font_sizes/font_size = 55
-text = "3
-Players"
-flat = true
-
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="Main"]
 layout_mode = 0
 offset_left = 1249.0
 offset_top = 554.0
@@ -65,16 +217,17 @@ Jugador 3: IJKL"
 label_settings = SubResource("LabelSettings_6wh1j")
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Main"]
 stream = ExtResource("2_4640q")
 autoplay = true
 
-[node name="ComenzarButton" type="Control" parent="."]
+[node name="ComenzarButton" type="Control" parent="Main"]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="ComenzarButton"]
+[node name="ColorRect" type="ColorRect" parent="Main/ComenzarButton"]
 layout_mode = 0
 offset_left = 1226.0
 offset_top = 830.0
@@ -83,7 +236,7 @@ offset_bottom = 870.0
 scale = Vector2(12.5211, 3.84)
 color = Color(1, 0.8, 0, 1)
 
-[node name="Comenzar" type="Button" parent="ComenzarButton"]
+[node name="Comenzar" type="Button" parent="Main/ComenzarButton"]
 layout_mode = 0
 offset_left = 1224.0
 offset_top = 827.0
@@ -95,6 +248,6 @@ theme_override_font_sizes/font_size = 68
 text = "START"
 flat = true
 
-[connection signal="pressed" from="2Players" to="." method="_on_2players_pressed"]
-[connection signal="pressed" from="3Players" to="." method="_on_3players_pressed"]
-[connection signal="pressed" from="ComenzarButton/Comenzar" to="." method="_on_comenzar_pressed"]
+[connection signal="pressed" from="PlayerSelect/Start" to="PlayerSelect" method="_on_start_pressed"]
+[connection signal="timeout" from="PlayerSelect/Timer" to="PlayerSelect" method="on_timer"]
+[connection signal="pressed" from="Main/ComenzarButton/Comenzar" to="." method="_on_comenzar_pressed"]

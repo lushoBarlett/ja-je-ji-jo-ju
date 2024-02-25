@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8v6y28f0yjd1"
-path="res://.godot/imported/rata.png-48e0be3e74b0a1f5d42030f5fe36e26b.ctex"
+uid="uid://dw4uafm0hogd1"
+path="res://.godot/imported/rata_blanca.png-db49c195b276b3d33044ad9bbafdcb0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rata.png"
-dest_files=["res://.godot/imported/rata.png-48e0be3e74b0a1f5d42030f5fe36e26b.ctex"]
+source_file="res://assets/skins/rata_blanca.png"
+dest_files=["res://.godot/imported/rata_blanca.png-db49c195b276b3d33044ad9bbafdcb0e.ctex"]
 
 [params]
 
