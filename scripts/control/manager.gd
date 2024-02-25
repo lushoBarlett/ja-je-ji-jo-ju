@@ -4,7 +4,7 @@ var spawns = []
 var gases = []
 var ratas = []
 var skins = []
-var player_count : int
+var players : Array
 var Nivel: Node2D
 
 func is_gas(child):
@@ -55,9 +55,6 @@ func encontrar_ratas():
 func asignar_ratas():
 	Nivel.Jefe.ratas = ratas
 
-func asignar_skins():
-	Nivel.skins = skins
-
 func conectar_muertes():
 	for rata in ratas:
 		rata.muerte.connect(mori)
@@ -95,9 +92,8 @@ func cargar_titulo():
 	add_child(Nivel) # hack
 	Nivel.add_child(Title)
 	
-func set_players(c, s):
-	player_count = c
-	skins = s
+func set_players(p):
+	players = p
 	cargar_nivel()
 
 func cargar_nivel():
@@ -107,8 +103,7 @@ func cargar_nivel():
 		remove_child(Nivel)
 
 	Nivel = load("res://scenes/levels/Level" + str(NIVEL) + ".tscn").instantiate()
-	Nivel.player_count = player_count
-	asignar_skins()
+	Nivel.players = players
 	add_child(Nivel)
 	get_tree().paused = false
 
